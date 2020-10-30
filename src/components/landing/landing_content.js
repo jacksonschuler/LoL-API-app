@@ -7,15 +7,13 @@ const useStyles = makeStyles(() => ({
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'center',
-        minHeight: 'calc(100vh - 50px)',
+        minHeight: '75vh',
     }
 }));
 
 function LandingContent() {
 
     //TODO: for now, relatively large search bar and center on screen
-
-    const [nameInput, setNameInput] = React.useState('');
 
     const classes = useStyles();
 
@@ -24,7 +22,6 @@ function LandingContent() {
             <div className={classes.searchBarContainer}>
                 <LandingSearchBar
                     placeholder={"Enter Summoner Name"}
-                    getInput={(value) => setNameInput(value)}
                 />
             </div>
         </div>

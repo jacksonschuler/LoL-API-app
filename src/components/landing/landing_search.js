@@ -37,8 +37,14 @@ const useStyles = makeStyles((theme) => ({
 
 }));
 
+function route_to_summoner_name(name) {
+    window.location.href="/summoner/"+name;
+}
+
 function LandingSearchBar(props) {
     let placeholder = props.placeholder;
+
+    const [nameInput, setNameInput] = React.useState('');
 
     const classes = useStyles();
     //TODO: component styling
@@ -53,11 +59,11 @@ function LandingSearchBar(props) {
                             placeholder={placeholder}
                             color={'secondary'}
                             onEnded={()=>{props.getInput(placeholder)}}
-                            onChange={(e) => {props.getInput(e.target.value) ;}}
+                            onChange={(e) => {setNameInput(e.target.value) ;}}
                         />
                     </Paper>
                     <Paper className={classes.paper} elevation={0}>
-                        <Button className={classes.button}>
+                        <Button className={classes.button} onClick={()=>{route_to_summoner_name(nameInput)}}>
                             <SearchIcon/>
                         </Button>
                     </Paper>
