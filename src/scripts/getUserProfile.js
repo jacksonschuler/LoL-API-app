@@ -1,27 +1,22 @@
-function getSummonerProfile(name){
+import config from '../config'
+
+export default function getSummonerProfile(name){
     const request = require('request');
 
+    const api_key = config.API_KEY;
+
+    const api_call = 'https://na1.api.riotgames.com/lol/summoner/v4/summoners/by-name/' + name + '?api_key=' + api_key;
+
+    const proxy = `https://cors-anywhere.herokuapp.com/`; // Workaround for Riot API not returning CORS allowed header
+
     const options  = {
-        url: 'https://na1.api.riotgames.com/lol/summoner/v4/summoners/by-name/' + name,
-        method: 'GET',
-        headers: {
-            "User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/85.0.4183.102 Safari/537.36",
-            "Accept-Language": "en-GB,en-US;q=0.9,en;q=0.8",
-            "Accept-Charset": "application/x-www-form-urlencoded; charset=UTF-8",
-            "Origin": "https://developer.riotgames.com",
-            "X-Riot-Token": "RGAPI-5dbcdd76-38ba-48b0-b014-c2f40dfe24b1"
-        },
+        url: `${proxy}${api_call}`,
+        json:true,
     };
 
-    request(options, function(err, res, body) {
-        let json = JSON.parse(body);
-        console.log(json)
+    request.get(options, function(err, res, body) {
+        console.log(body)
     });
 
 }
 
-// module.exports = {
-//     getSummonerProfile: getSummonerProfile
-// };
-
-getSummonerProfile('schulerj');
