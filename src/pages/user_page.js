@@ -1,4 +1,5 @@
 import React from 'react';
+import {getSummonerProfile} from '../scripts/getUserProfile'
 
 function UserPage(props) {
 
@@ -10,6 +11,7 @@ function UserPage(props) {
         <>
             <p>User Page</p>
             <p>{props.match.params.name}</p>
+            {(props.match.params.name !== undefined ? (getSummonerProfile(props.match.params.name)) : ('gamer'))}
         </>
     );
 }
