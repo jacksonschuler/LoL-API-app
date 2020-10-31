@@ -9,8 +9,8 @@ function App() {
       <>
         <Router>
             <Switch>
-                <Route exact path={'/'} component={Landing}/>
-                <Route path={'/summoner/:name'} component={UserPage}/>
+                <Route exact path='/' component={Landing}/>
+                <Route path='/summoner/:name' component={UserPage}/>
             </Switch>
         </Router>
       </>

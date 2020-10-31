@@ -9,7 +9,7 @@ function getSummonerProfile(name){
             "Accept-Language": "en-GB,en-US;q=0.9,en;q=0.8",
             "Accept-Charset": "application/x-www-form-urlencoded; charset=UTF-8",
             "Origin": "https://developer.riotgames.com",
-            "X-Riot-Token": "RGAPI-2b34536f-018d-4b55-aa25-b3b79ce87a25"
+            "X-Riot-Token": "RGAPI-5dbcdd76-38ba-48b0-b014-c2f40dfe24b1"
         },
     };
 
@@ -20,7 +20,8 @@ function getSummonerProfile(name){
 
 }
 
-module.exports = {
-    getSummonerProfile: getSummonerProfile
-};
+// module.exports = {
+//     getSummonerProfile: getSummonerProfile
+// };
 
+getSummonerProfile('schulerj');

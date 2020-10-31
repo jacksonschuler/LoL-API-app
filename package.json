@@ -13,6 +13,7 @@
     "react-dom": "^17.0.1",
     "react-scripts": "4.0.0",
     "request": "latest",
+    "serve": "^11.3.2",
     "web-vitals": "^0.2.4"
   },
   "scripts": {
@@ -40,6 +41,7 @@
     ]
   },
   "devDependencies": {
+    "axios": "^0.21.0",
     "react-router-dom": "^5.2.0"
   }
 }
