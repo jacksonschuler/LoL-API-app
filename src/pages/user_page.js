@@ -2,6 +2,7 @@ import React, {useEffect, useState} from 'react';
 import axios from 'axios'
 import config from "../config";
 import SummonerCard from "../components/user_page/summoner_card";
+import LoadingSummonerCard from "../components/user_page/loading_summoner_card";
 
 /**
  * Info i wanna show
@@ -12,7 +13,7 @@ import SummonerCard from "../components/user_page/summoner_card";
  * */
 
 function UserPage(props) {
-    let [summonerInfo, setSummonerInfo] = useState({});
+    let [summonerInfo, setSummonerInfo] = useState(undefined);
     useEffect(() => {
         const api_key = config.API_KEY;
         const api_call = 'https://na1.api.riotgames.com/lol/summoner/v4/summoners/by-name/' + props.match.params.name + '?api_key=' + api_key;
@@ -25,11 +26,16 @@ function UserPage(props) {
 
     return(
         <div>
-            <SummonerCard
-                name={summonerInfo.name}
-                profile_icon={summonerInfo.profileIconId}
-                level={summonerInfo.summonerLevel}
-            />
+            {summonerInfo ? (
+                <SummonerCard
+                    name={summonerInfo.name}
+                    profile_icon={summonerInfo.profileIconId}
+                    level={summonerInfo.summonerLevel}
+                    region={'NA'}
+                />
+            ) : (
+                <LoadingSummonerCard/>
+            )}
         </div>
     )
 }

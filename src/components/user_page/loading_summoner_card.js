@@ -1,7 +1,7 @@
 import React from 'react'
 import {makeStyles} from "@material-ui/core/styles";
 import Card from "@material-ui/core/Card";
-import Avatar from "@material-ui/core/Avatar";
+import CircularProgress from "@material-ui/core/CircularProgress";
 
 
 const useStyles = makeStyles((theme) => ({
@@ -23,43 +23,39 @@ const useStyles = makeStyles((theme) => ({
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'center',
-        marginBottom: -35,
-        fontFamily: 'Quicksand',
-    },
-    avatar_container: {
-        display: 'flex',
-        padding: 16
-    },
-    avatar: {
-        padding: 5,
-        height: 30,
-        width: 30,
-        marginRight: theme.spacing(1)
+        background: '#dadada',
+        borderRadius: 50,
+        height: 10,
+
     },
     img : {
         width:200,
         height: 200,
-        backgroundSize: 'cover',
-        backgroundRepeat: 'no-repeat',
+        backgroundColor: 'white',
         borderRadius: 35,
         borderStyle: 'solid',
         borderColor: '#fff',
         borderWidth: '5px',
         zIndex: 2,
         boxShadow: '0 16px 40px -12.125px rgba(0,0,0,0.3)',
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'center',
     },
     img_container: {
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'center',
         marginTop: -225,
-        marginBottom: 15
     },
-    divider: {
-        marginTop: 30,
-        marginLeft: 40,
-        marginRight: 40
+    container: {
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'center',
     },
+    colorPrimary: {
+        color: '#cfcfcf',
+    }
 }));
 
 /*
@@ -70,14 +66,8 @@ const useStyles = makeStyles((theme) => ({
 *
 * */
 
-function SummonerCard(props) {
+function LoadingSummonerCard() {
     const classes = useStyles();
-
-    const name = props.name;
-    const profile_icon = `http://ddragon.leagueoflegends.com/cdn/10.22.1/img/profileicon/${props.profile_icon}.png`;
-    const level = props.level;
-    const region = props.region;
-
     return(
         <div>
             <Card className={classes.card}>
@@ -94,17 +84,25 @@ function SummonerCard(props) {
                     </div>
                 </div>
                 <div className={classes.img_container}>
-                    <div className={classes.img} style={{backgroundImage: `url(${profile_icon})`}}/>
+                    <div className={classes.img}>
+                        <CircularProgress color={'primary'} classes={{
+                            colorPrimary: classes.colorPrimary
+                        }}
+                        />
+                    </div>
                 </div>
-                <div className={classes.name}><h2>{name}</h2></div>
-                <div className={classes.name}><h3>{level}</h3></div>
+                <div style={{margin: 50}}/>
+                <div className={classes.container}>
+                    <div className={classes.name} style={{width: 100}}/>
+                </div>
+                <div style={{margin: 15}}/>
+                <div className={classes.container}>
+                    <div className={classes.name} style={{width: 60}}/>
+                </div>
                 <div className={classes.divider}/>
-                <div className={classes.avatar_container}>
-                    <Avatar className={classes.avatar}>{region}</Avatar>
-                </div>
             </Card>
         </div>
     )
 }
 
-export default SummonerCard
+export default LoadingSummonerCard
