@@ -1,25 +1,23 @@
-import React, {useEffect} from 'react';
-import getSummonerProfile from "../scripts/getUserProfile";
+import React, {useEffect, useState} from 'react';
+import axios from 'axios'
+import config from "../config";
 
 function UserPage(props) {
-
-    const [summonerName, setSummonerName] = React.useState('');
-    
-    // TODO: only run a single time when the name has been received rather than running where the name is an empty string
-
+    let [summonerInfo, setSummonerInfo] = useState({});
     useEffect(() => {
-        setSummonerName(props.match.params.name);
-        if (summonerName !== '' || props.match.params.name !== undefined) {
-            getSummonerProfile(summonerName)
-        }
-    });
+        const api_key = config.API_KEY;
+        const api_call = 'https://na1.api.riotgames.com/lol/summoner/v4/summoners/by-name/' + props.match.params.name + '?api_key=' + api_key;
+        const proxy = `https://cors-anywhere.herokuapp.com/`; // Workaround for Riot API not returning CORS allowed header
+        axios.get(`${proxy}${api_call}`).then((res) => {
+            console.log(res.data);
+            setSummonerInfo(res.data)
+        })
+    }, [props.match.params.name]);
 
     return(
-        <>
-            <p>User Page</p>
-            <p>{props.match.params.name}</p>
-        </>
-    );
+        <div>
+            User Page
+        </div>
+    )
 }
-
 export default UserPage;

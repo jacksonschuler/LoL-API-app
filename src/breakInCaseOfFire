@@ -1,0 +1,7 @@
+const api_call = 'https://na1.api.riotgames.com/lol/summoner/v4/summoners/by-name/schulerj?api_key=RGAPI-5dbcdd76-38ba-48b0-b014-c2f40dfe24b1';
+const proxy = `https://cors-anywhere.herokuapp.com/`; // Workaround for Riot API not returning CORS allowed header
+fetch(`${proxy}${api_call}`).then(res => {
+    res.json().then(data => {
+        console.log(data)
+    })
+});
