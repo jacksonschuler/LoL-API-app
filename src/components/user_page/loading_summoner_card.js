@@ -11,7 +11,8 @@ const useStyles = makeStyles((theme) => ({
         maxWidth: 275,
         minHeight: 420, //nice
         boxShadow: '0 16px 40px -12.125px rgba(0,0,0,0.3)',
-        backgroundColor: '#fff'
+        backgroundColor: '#fff',
+        marginLeft: 15,
     },
     card_wave_svg: {
         position: 'relative',
@@ -26,7 +27,6 @@ const useStyles = makeStyles((theme) => ({
         background: '#dadada',
         borderRadius: 50,
         height: 10,
-
     },
     img : {
         width:200,
@@ -42,6 +42,27 @@ const useStyles = makeStyles((theme) => ({
         alignItems: 'center',
         justifyContent: 'center',
     },
+    img_ranked: {
+        width:171,
+        height: 195,
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'center',
+    },
+    img_cont_ranked:{
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'center',
+        marginBottom: 45,
+    },
+    name_ranked: {
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'center',
+        background: '#dadada',
+        borderRadius: 50,
+        height: 10,
+    },
     img_container: {
         display: 'flex',
         alignItems: 'center',
@@ -55,7 +76,10 @@ const useStyles = makeStyles((theme) => ({
     },
     colorPrimary: {
         color: '#cfcfcf',
-    }
+    },
+    cards: {
+        display: 'flex',
+    },
 }));
 
 /*
@@ -69,7 +93,7 @@ const useStyles = makeStyles((theme) => ({
 function LoadingSummonerCard() {
     const classes = useStyles();
     return(
-        <div>
+        <div className={classes.cards}>
             <Card className={classes.card}>
                 <div style={{height: 255, background: 'linear-gradient(to right, #bc4e9c, #f80759)', marginBottom: -90}}/>
                 <div style={{marginBottom: 25}}>
@@ -100,6 +124,52 @@ function LoadingSummonerCard() {
                     <div className={classes.name} style={{width: 60}}/>
                 </div>
                 <div className={classes.divider}/>
+            </Card>
+            
+            <Card className={classes.card}>
+                <div style={{margin: 30}}/>
+                <div className={classes.container}>
+                    <div className={classes.name_ranked} style={{width: 70, marginBottom: 15}}>
+                    </div>
+                </div>
+                <div className={classes.img_cont_ranked}>
+                    <div className={classes.img_ranked}>
+                        <CircularProgress color={'primary'} classes={{
+                            colorPrimary: classes.colorPrimary
+                        }}/></div>
+                </div>
+                <div className={classes.container}>
+                    <div className={classes.name_ranked} style={{width: 150, marginBottom: 30}}/>
+                </div>
+                <div className={classes.container}>
+                    <div className={classes.name_ranked} style={{width: 55, marginBottom: 10}}/>
+                </div>
+                <div className={classes.container}>
+                    <div className={classes.name_ranked} style={{width: 55}}/>
+                </div>
+            </Card>
+
+            <Card className={classes.card}>
+                <div style={{margin: 30}}/>
+                <div className={classes.container}>
+                    <div className={classes.name_ranked} style={{width: 70, marginBottom: 15}}>
+                    </div>
+                </div>
+                <div className={classes.img_cont_ranked}>
+                    <div className={classes.img_ranked}>
+                        <CircularProgress color={'primary'} classes={{
+                            colorPrimary: classes.colorPrimary
+                        }}/></div>
+                </div>
+                <div className={classes.container}>
+                    <div className={classes.name_ranked} style={{width: 150, marginBottom: 30}}/>
+                </div>
+                <div className={classes.container}>
+                    <div className={classes.name_ranked} style={{width: 55, marginBottom: 10}}/>
+                </div>
+                <div className={classes.container}>
+                    <div className={classes.name_ranked} style={{width: 55}}/>
+                </div>
             </Card>
         </div>
     )

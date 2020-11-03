@@ -130,7 +130,7 @@ function RankedCard(props) {
                       </Card>
                 )
           ) : (
-              <div>idk bruh</div>
+            <></>
           )}
       </div>
     );
