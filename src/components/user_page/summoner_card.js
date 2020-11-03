@@ -34,7 +34,8 @@ const useStyles = makeStyles((theme) => ({
         padding: 5,
         height: 30,
         width: 30,
-        marginRight: theme.spacing(1)
+        marginRight: theme.spacing(1),
+        fontFamily: 'Quicksand'
     },
     img : {
         width:200,
@@ -60,6 +61,14 @@ const useStyles = makeStyles((theme) => ({
         marginLeft: 40,
         marginRight: 40
     },
+    level_text: {
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'center',
+        marginBottom: -35,
+        fontFamily: 'Quicksand',
+        color:'#7b7b7b'
+    }
 }));
 
 /*
@@ -97,7 +106,7 @@ function SummonerCard(props) {
                     <div className={classes.img} style={{backgroundImage: `url(${profile_icon})`}}/>
                 </div>
                 <div className={classes.name}><h2>{name}</h2></div>
-                <div className={classes.name}><h3>{level}</h3></div>
+                <div className={classes.level_text}><h3>{level}</h3></div>
                 <div className={classes.divider}/>
                 <div className={classes.avatar_container}>
                     <Avatar className={classes.avatar}>{region}</Avatar>
