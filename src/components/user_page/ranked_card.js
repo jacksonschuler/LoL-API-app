@@ -13,6 +13,7 @@ import diamond from "../../static_data/Emblem_Diamond.png"
 import master from "../../static_data/Emblem_Master.png"
 import grandmaster from "../../static_data/Emblem_Grandmaster.png"
 import challenger from "../../static_data/Emblem_Challenger.png"
+import FeedbackRanked from "./feedback/feedback_ranked";
 
 
 const useStyles = makeStyles((theme) => ({
@@ -130,7 +131,10 @@ function RankedCard(props) {
                       </Card>
                 )
           ) : (
-            <></>
+              <div className={classes.cards}>
+                  <FeedbackRanked/>
+                  <FeedbackRanked/>
+              </div>
           )}
       </div>
     );

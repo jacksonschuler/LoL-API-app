@@ -2,7 +2,7 @@ import React, {useEffect, useState} from 'react';
 import axios from 'axios'
 import config from "../config";
 import SummonerCard from "../components/user_page/summoner_card";
-import LoadingSummonerCard from "../components/user_page/loading_summoner_card";
+import FeedbackCards from "../components/user_page/feedback/feedback_cards";
 import RankedCard from "../components/user_page/ranked_card";
 import {makeStyles} from "@material-ui/core/styles";
 /**
@@ -50,7 +50,7 @@ function UserPage(props) {
                 </div>
 
             ) : (
-                <LoadingSummonerCard/>
+                <FeedbackCards/>
             )}
         </div>
     )
