@@ -1,7 +1,6 @@
 import React, {useEffect, useState} from 'react'
 import {makeStyles} from "@material-ui/core/styles";
 import Card from "@material-ui/core/Card";
-import config from "../../config";
 import axios from "axios";
 
 import iron from "../../static_data/Emblem_Iron.png"
@@ -98,10 +97,8 @@ function RankedCard(props) {
     const classes = useStyles();
     let [rankedInfo, setRankedInfo] = useState(undefined);
     useEffect(() => {
-        const api_key = config.API_KEY;
-        const api_call = 'https://na1.api.riotgames.com/lol/league/v4/entries/by-summoner/' + props.id + '?api_key=' + api_key;
-        const proxy = `https://cors-anywhere.herokuapp.com/`; // Workaround for Riot API not returning CORS allowed header
-        axios.get(`${proxy}${api_call}`).then((res) => {
+        const api_call = 'https://us-central1-lol-api-project.cloudfunctions.net/getRankedInfo?id=' + props.id;
+        axios.get(api_call).then((res) => {
             // we need a check here if the account exists...
             console.log(res.data);
             setRankedInfo(res.data)

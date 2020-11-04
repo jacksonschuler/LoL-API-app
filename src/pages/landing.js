@@ -4,6 +4,7 @@ import LandingContent from "../components/landing/landing_content";
 
 
 function Landing() {
+
     return(
         <div>
             <LandingNavBar/>
