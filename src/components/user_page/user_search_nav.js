@@ -45,13 +45,18 @@ function UserSearchNav(props) {
     const classes = useStyles();
     return(
         <>
-            <Paper component={'form'} className={classes.paper_input} elevation={0}>
+            <Paper className={classes.paper_input} elevation={0}>
                 <InputBase
                     fullWidth
                     className={classes.inputBase}
                     placeholder={placeholder}
                     color={'secondary'}
                     onChange={(e) => {setNameInput(e.target.value) ;}}
+                    onKeyDown={(e) => {
+                        if (e.code === 'Enter'){
+                            route_to_summoner_name(nameInput)
+                        }
+                    }}
                 />
                 <IconButton onClick={()=>{route_to_summoner_name(nameInput)}}>
                     <SearchIcon/>
