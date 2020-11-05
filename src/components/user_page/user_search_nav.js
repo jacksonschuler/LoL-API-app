@@ -2,9 +2,9 @@ import React from 'react';
 import InputBase from "@material-ui/core/InputBase";
 import {makeStyles} from "@material-ui/core/styles";
 import Paper from "@material-ui/core/Paper";
-import Toolbar from "@material-ui/core/Toolbar";
 import SearchIcon from '@material-ui/icons/Search';
 import IconButton from "@material-ui/core/IconButton";
+import SvgIcon from "@material-ui/core/SvgIcon";
 
 const useStyles = makeStyles((theme) => ({
     inputBase: {
@@ -29,7 +29,7 @@ const useStyles = makeStyles((theme) => ({
     button: {
         borderRadius: 12,
         height:48,
-    }
+    },
 
 }));
 
@@ -65,5 +65,7 @@ function UserSearchNav(props) {
         </>
     )
 }
+
+//<a href="https://iconscout.com/icons/league-of-legends" target="_blank">League of legends Icon</a> by <a href="https://iconscout.com/contributors/icons8">Icons8</a> on <a href="https://iconscout.com">Iconscout</a>
 
 export default UserSearchNav;
