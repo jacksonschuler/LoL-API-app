@@ -8,7 +8,7 @@ const api_key = functions.config().api.key;
 
 
 exports.getSummoner = functions.https.onRequest(async (req, res) => {
-    return cors(req, res, () => {     // <------ RETURN NEEDED HERE
+    return cors(req, res, () => {
         let summoner_name = req.query.name;
 
         if (req.method !== "GET") {
@@ -34,7 +34,7 @@ exports.getSummoner = functions.https.onRequest(async (req, res) => {
 });
 
 exports.getRankedInfo = functions.https.onRequest(async (req, res) => {
-    return cors(req, res, () => {     // <------ RETURN NEEDED HERE
+    return cors(req, res, () => {
         let summoner_id = req.query.id;
         if (req.method !== "GET") {
             return res.status(401).json({
