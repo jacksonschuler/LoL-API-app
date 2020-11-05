@@ -3,6 +3,7 @@ import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
+import LandingSearchBar from "../landing/landing_search";
 
 const useStyles = makeStyles(() => ({
     title: {
@@ -10,14 +11,18 @@ const useStyles = makeStyles(() => ({
         fontFamily: 'Quicksand',
     },
     appBar: {
+        padding: 5,
         boxShadow: '0 16px 40px -12.125px rgba(0,0,0,0.3)',
+        display:'flex',
+        justifyContent: 'center',
+        alignItems: 'center'
     },
     color: {
         backgroundImage: 'linear-gradient(to right, #bc4e9c, #f80759)',
     },
 }));
 
-function LandingNavBar() {
+function UserNav() {
     const classes = useStyles();
     return(
         <div>
@@ -25,11 +30,13 @@ function LandingNavBar() {
                 colorPrimary: classes.color
             }}>
                 <Toolbar>
-                    <Typography className={classes.title} variant={'h6'} noWrap>League of Legends API Web Application</Typography>
+                    <LandingSearchBar
+                        placeholder={"Enter Summoner Name"}
+                    />
                 </Toolbar>
             </AppBar>
         </div>
     )
 }
 
-export default LandingNavBar;
+export default UserNav;
