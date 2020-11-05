@@ -1,9 +1,9 @@
 import React from 'react';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
-import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
-import LandingSearchBar from "../landing/landing_search";
+import UserSearchNav from './user_search_nav';
+
 
 const useStyles = makeStyles(() => ({
     title: {
@@ -30,7 +30,7 @@ function UserNav() {
                 colorPrimary: classes.color
             }}>
                 <Toolbar>
-                    <LandingSearchBar
+                    <UserSearchNav
                         placeholder={"Enter Summoner Name"}
                     />
                 </Toolbar>
