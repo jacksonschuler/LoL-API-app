@@ -66,6 +66,4 @@ function UserSearchNav(props) {
     )
 }
 
-//<a href="https://iconscout.com/icons/league-of-legends" target="_blank">League of legends Icon</a> by <a href="https://iconscout.com/contributors/icons8">Icons8</a> on <a href="https://iconscout.com">Iconscout</a>
-
 export default UserSearchNav;
