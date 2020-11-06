@@ -6,7 +6,7 @@ import CircularProgress from "@material-ui/core/CircularProgress";
 
 const useStyles = makeStyles((theme) => ({
     card: {
-        borderRadius: 35,
+        borderRadius: 7,
         minWidth: 275,
         maxWidth: 275,
         minHeight: 420, //nice
@@ -63,18 +63,8 @@ function FeedbackSummoner() {
     return(
         <div>
             <Card className={classes.card}>
-                <div style={{height: 255, background: 'linear-gradient(to right, #bc4e9c, #f80759)', marginBottom: -90}}/>
-                <div style={{marginBottom: 25}}>
-                    <div className="custom-shape-divider-bottom-1604297432">
-                        <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120"
-                             preserveAspectRatio="none" className={classes.card_wave_svg}>
-                            <path
-                                d="M600,112.77C268.63,112.77,0,65.52,0,7.23V120H1200V7.23C1200,65.52,931.37,112.77,600,112.77Z"
-                                fill={"#fff"}
-                            />
-                        </svg>
-                    </div>
-                </div>
+                <div style={{height: 255, marginBottom: -90}}/>
+                <div style={{marginBottom: 25}}/>
                 <div className={classes.img_container}>
                     <div className={classes.img}>
                         <CircularProgress color={'primary'} classes={{

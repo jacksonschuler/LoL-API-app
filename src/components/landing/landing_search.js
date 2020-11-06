@@ -12,7 +12,7 @@ const useStyles = makeStyles((theme) => ({
         height: 48,
         color: '#000000',
         background: 'white',
-        fontWeight:200,
+        fontFamily: 'Quicksand',
         borderStyle:'none',
         borderRadius: 12,
         paddingLeft: 24,
@@ -31,7 +31,9 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 function route_to_summoner_name(name) {
-    window.location.href="/summoner/"+name;
+    if (name !== ''){
+        window.location.href="/summoner/"+name;
+    }
 }
 
 function LandingSearchBar(props) {

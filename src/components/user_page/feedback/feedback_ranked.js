@@ -6,7 +6,7 @@ import CircularProgress from "@material-ui/core/CircularProgress";
 
 const useStyles = makeStyles((theme) => ({
     card: {
-        borderRadius: 35,
+        borderRadius: 7,
         minWidth: 275,
         maxWidth: 275,
         minHeight: 420, //nice

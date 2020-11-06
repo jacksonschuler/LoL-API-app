@@ -4,16 +4,15 @@ import {makeStyles} from "@material-ui/core/styles";
 import Paper from "@material-ui/core/Paper";
 import SearchIcon from '@material-ui/icons/Search';
 import IconButton from "@material-ui/core/IconButton";
-import SvgIcon from "@material-ui/core/SvgIcon";
 
 const useStyles = makeStyles((theme) => ({
     inputBase: {
         height: 48,
         color: '#000000',
         background: 'white',
-        fontWeight:200,
+        fontFamily: 'Quicksand',
         borderStyle:'none',
-        borderRadius: 12,
+        borderRadius: 5,
         paddingLeft: 24,
         paddingTop: 14,
         paddingBottom: 13,
@@ -23,7 +22,7 @@ const useStyles = makeStyles((theme) => ({
     },
     paper_input: {
         display:'flex',
-        borderRadius: 12,
+        borderRadius: 5,
         marginRight: theme.spacing(1),
     },
     button: {
@@ -34,7 +33,9 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 function route_to_summoner_name(name) {
-    window.location.href="/summoner/"+name;
+    if (name !== ''){
+        window.location.href="/summoner/"+name;
+    }
 }
 
 function UserSearchNav(props) {

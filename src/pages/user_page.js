@@ -5,6 +5,7 @@ import FeedbackCards from "../components/user_page/feedback/feedback_cards";
 import RankedCard from "../components/user_page/ranked_card";
 import {makeStyles} from "@material-ui/core/styles";
 import UserNav from "../components/user_page/nav_bar";
+import MostPlayedChamps from "../components/user_page/most_played_champs";
 /**
  * Info i wanna show
  * Icon
@@ -22,6 +23,18 @@ const useStyles = makeStyles((theme) => ({
         display: 'flex',
         justifyContent: 'center',
         alignItems: 'center'
+    },
+    color_divider: {
+        backgroundImage: 'linear-gradient(to right, #bc4e9c, #f80759)',
+        position: 'absolute',
+        top: 0,
+        left: 0,
+        width: '100%',
+        height: '60vh',
+        zIndex: -1,
+    },
+    footer: {
+        height: '20vh',
     }
 }));
 
@@ -58,6 +71,9 @@ function UserPage(props) {
                     <FeedbackCards/>
                 )}
             </div>
+            <div className={classes.color_divider}/>
+            <MostPlayedChamps/>
+            <div className={classes.footer}/>
         </div>
     )
 }

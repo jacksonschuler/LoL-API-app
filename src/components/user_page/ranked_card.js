@@ -17,12 +17,12 @@ import FeedbackRanked from "./feedback/feedback_ranked";
 
 const useStyles = makeStyles((theme) => ({
     card: {
-        borderRadius: 35,
+        borderRadius: 7,
         minWidth: 275,
         maxWidth: 275,
         minHeight: 444.25, //nice
-        boxShadow: '0 16px 40px -12.125px rgba(0,0,0,0.3)',
-        marginLeft: 15,
+        boxShadow: '0 16px 40px -12.125px rgba(0,0,0,0.4)',
+        marginLeft: 13,
     },
     cards: {
         display: 'flex',
