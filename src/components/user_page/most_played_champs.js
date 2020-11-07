@@ -43,8 +43,7 @@ function MostPlayedChamps(props) {
     let [masteryInfo, setMasteryInfo] = useState(undefined);
 
     useEffect(()=> {
-        let version = config.GAME_VERSION;
-        axios.get('http://ddragon.leagueoflegends.com/cdn/' + version + '/data/en_US/champion.json').then(res => {
+        axios.get('https://us-central1-lol-api-project.cloudfunctions.net/getChampsJSON?version=10.22.1').then(res => {
             setChamps(res.data);
         });
         const api_call = 'https://us-central1-lol-api-project.cloudfunctions.net/getMasteryChamps?id=' + props.id;
@@ -66,6 +65,7 @@ function MostPlayedChamps(props) {
                 {masteryInfo ? (
                     masteryInfo.map(champ =>
                         <ChampionCard
+                            key={champ.championId}
                             name={getChampNameFromChampID(champ.championId, champs)}
                             img={'http://ddragon.leagueoflegends.com/cdn/img/champion/splash/' + getChampNameFromChampID(champ.championId, champs) +'_0.jpg'}
                             masterypts={champ.championPoints}

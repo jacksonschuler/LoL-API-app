@@ -83,3 +83,26 @@ exports.getMasteryChamps = functions.https.onRequest(async (req, res) => {
 
     })
 });
+
+exports.getChampsJSON = functions.https.onRequest(async (req, res) => {
+    return cors(req, res, () => {
+        let version = req.query.version;
+        if (req.method !== "GET") {
+            return res.status(401).json({
+                message: "Not allowed"
+            });
+        }
+        axios.get('http://ddragon.leagueoflegends.com/cdn/' + version + '/data/en_US/champion.json').then(response => {
+            return res.status(200).json(
+                response.data
+            )
+        }).catch(err => {
+                return res.status(500).json({
+                    error: err
+                })
+            })
+
+    })
+});
+
+

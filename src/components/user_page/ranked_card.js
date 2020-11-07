@@ -97,7 +97,6 @@ function RankedCard(props) {
     const classes = useStyles();
     let [rankedInfo, setRankedInfo] = useState(undefined);
     useEffect(() => {
-        console.log(props.id)
         const api_call = 'https://us-central1-lol-api-project.cloudfunctions.net/getRankedInfo?id=' + props.id;
         axios.get(api_call).then((res) => {
             // we need a check here if the account exists...
