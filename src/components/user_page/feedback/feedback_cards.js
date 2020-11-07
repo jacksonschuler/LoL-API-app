@@ -7,6 +7,9 @@ import FeedbackSummoner from "./feedback_summoner";
 const useStyles = makeStyles((theme) => ({
     cards: {
         display: 'flex',
+        flexWrap: 'wrap',
+        justifyContent: 'center',
+        marginTop: 100,
     },
 }));
 

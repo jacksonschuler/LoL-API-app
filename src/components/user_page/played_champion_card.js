@@ -19,8 +19,7 @@ const useStyles = makeStyles((theme) => ({
     card_container: {
         minWidth: '25vw',
         minHeight: '65vh',
-        marginBottom: '3vh',
-        marginRight: '3vh',
+        marginRight: 25,
     },
     img: {
         width: '100%',

@@ -12,7 +12,7 @@ const useStyles = makeStyles((theme) => ({
         minHeight: 420, //nice
         boxShadow: '0 16px 40px -12.125px rgba(0,0,0,0.4)',
         backgroundColor: '#fff',
-        marginTop: 15,
+        margin: 7.5,
     },
     card_wave_svg: {
         position: 'relative',
@@ -95,21 +95,19 @@ function SummonerCard(props) {
     const region = props.region;
 
     return(
-        <div className={classes.container}>
-            <Card className={classes.card}>
-                <div style={{height: 255, marginBottom: -90}}/>
-                <div style={{marginBottom: 25}}/>
-                <div className={classes.img_container}>
-                    <div className={classes.img} style={{backgroundImage: `url(${profile_icon})`}}/>
-                </div>
-                <div className={classes.name}><h2>{name}</h2></div>
-                <div className={classes.level_text}><h3>{level}</h3></div>
-                <div className={classes.divider}/>
-                <div className={classes.avatar_container}>
-                    <Avatar className={classes.avatar}>{region}</Avatar>
-                </div>
-            </Card>
-        </div>
+        <Card className={classes.card}>
+            <div style={{height: 255, marginBottom: -90}}/>
+            <div style={{marginBottom: 25}}/>
+            <div className={classes.img_container}>
+                <div className={classes.img} style={{backgroundImage: `url(${profile_icon})`}}/>
+            </div>
+            <div className={classes.name}><h2>{name}</h2></div>
+            <div className={classes.level_text}><h3>{level}</h3></div>
+            <div className={classes.divider}/>
+            <div className={classes.avatar_container}>
+                <Avatar className={classes.avatar}>{region}</Avatar>
+            </div>
+        </Card>
     )
 }
 

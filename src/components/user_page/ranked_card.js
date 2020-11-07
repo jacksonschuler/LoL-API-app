@@ -22,15 +22,11 @@ const useStyles = makeStyles((theme) => ({
         maxWidth: 275,
         minHeight: 444.25,
         boxShadow: '0 16px 40px -12.125px rgba(0,0,0,0.4)',
-        marginTop: 15,
-        marginLeft: 23,
-    },
-    container: {
-        display: 'flex',
-        justifyContent: 'center',
+        margin: 7.5,
     },
     cards: {
         display: 'flex',
+        justifyContent: 'center',
         flexWrap: 'wrap',
     },
     img_container: {
@@ -114,25 +110,23 @@ function RankedCard(props) {
       <div className={classes.cards}>
           {rankedInfo !== undefined ? (
               rankedInfo.map(rank =>
-                  <div className={classes.container} key={rank.queueType}>
-                      <Card className={classes.card}>
-                          <div className={classes.text}>
-                              <h4>{determineRankedType(rank.queueType)}</h4>
-                          </div>
-                          <div className={classes.img_container}>
-                              <div className={classes.img} style={{backgroundImage: `url(${determineRank(rank.tier)})`,}}/>
-                          </div>
-                          <div className={classes.text}>
-                              <h4>{toTitleCase(rank.tier)} : {rank.rank} - {rank.leaguePoints} LP</h4>
-                          </div>
-                          <div className={classes.text}>
-                              {calculateWR(rank.wins, rank.losses)}% WR
-                          </div>
-                          <div className={classes.text}>
-                              {rank.wins}W - {rank.losses}L
-                          </div>
-                      </Card>
-                  </div>
+                  <Card className={classes.card} key={rank.queueType}>
+                      <div className={classes.text}>
+                          <h4>{determineRankedType(rank.queueType)}</h4>
+                      </div>
+                      <div className={classes.img_container}>
+                          <div className={classes.img} style={{backgroundImage: `url(${determineRank(rank.tier)})`,}}/>
+                      </div>
+                      <div className={classes.text}>
+                          <h4>{toTitleCase(rank.tier)} : {rank.rank} - {rank.leaguePoints} LP</h4>
+                      </div>
+                      <div className={classes.text}>
+                          {calculateWR(rank.wins, rank.losses)}% WR
+                      </div>
+                      <div className={classes.text}>
+                          {rank.wins}W - {rank.losses}L
+                      </div>
+                  </Card>
                 )
           ) : (
               <div className={classes.cards}>

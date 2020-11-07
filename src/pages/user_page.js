@@ -18,12 +18,8 @@ const useStyles = makeStyles((theme) => ({
     cards: {
         display: 'flex',
         flexWrap: 'wrap',
-        justifyContent: 'center'
-    },
-    card_container: {
+        justifyContent: 'center',
         marginTop: 100,
-        paddingLeft: '7vw',
-        paddingRight: '7vw',
     },
     color_divider: {
         backgroundImage: 'linear-gradient(to right, #bc4e9c, #f80759)',
@@ -54,24 +50,22 @@ function UserPage(props) {
     return(
         <div>
             <UserNav/>
-            <div className={classes.card_container}>
-                {summonerInfo ? (
-                    <div className={classes.cards}>
-                        <SummonerCard
-                            name={summonerInfo.name}
-                            profile_icon={summonerInfo.profileIconId}
-                            level={summonerInfo.summonerLevel}
-                            region={'NA'}
-                        />
-                        <RankedCard
-                            id={summonerInfo.id}
-                        />
-                    </div>
+            {summonerInfo ? (
+                <div className={classes.cards}>
+                    <SummonerCard
+                        name={summonerInfo.name}
+                        profile_icon={summonerInfo.profileIconId}
+                        level={summonerInfo.summonerLevel}
+                        region={'NA'}
+                    />
+                    <RankedCard
+                        id={summonerInfo.id}
+                    />
+                </div>
 
-                ) : (
-                    <FeedbackCards/>
-                )}
-            </div>
+            ) : (
+                <FeedbackCards/>
+            )}
             <div className={classes.color_divider}/>
             {summonerInfo ? (
                 <MostPlayedChamps
