@@ -72,7 +72,12 @@ function UserPage(props) {
                 )}
             </div>
             <div className={classes.color_divider}/>
-            <MostPlayedChamps/>
+            {summonerInfo ? (
+                <MostPlayedChamps
+                    id={summonerInfo.id}
+                />) : (
+                    <div/>
+            )}
             <div className={classes.footer}/>
         </div>
     )

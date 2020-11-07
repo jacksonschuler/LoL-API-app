@@ -57,3 +57,29 @@ exports.getRankedInfo = functions.https.onRequest(async (req, res) => {
 
     })
 });
+
+exports.getMasteryChamps = functions.https.onRequest(async (req, res) => {
+    return cors(req, res, () => {
+        let summoner_id = req.query.id;
+
+        if (req.method !== "GET") {
+            return res.status(401).json({
+                message: "Not allowed"
+            });
+        }
+        return axios.get('https://na1.api.riotgames.com/lol/champion-mastery/v4/champion-masteries/by-summoner/' + summoner_id +
+            '?api_key='+api_key)
+            .then(response => {
+                console.log(response.data);
+                return res.status(200).json(
+                    response.data
+                )
+            })
+            .catch(err => {
+                return res.status(500).json({
+                    error: err
+                })
+            })
+
+    })
+});
