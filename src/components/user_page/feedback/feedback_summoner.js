@@ -12,7 +12,7 @@ const useStyles = makeStyles((theme) => ({
         minHeight: 420, //nice
         boxShadow: '0 16px 40px -12.125px rgba(0,0,0,0.3)',
         backgroundColor: '#fff',
-        marginLeft: 15,
+        margin: 7.5,
     },
     container: {
         display: 'flex',

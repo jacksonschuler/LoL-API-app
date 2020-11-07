@@ -9,16 +9,17 @@ import mastery_5 from '../../static_data/5.png';
 const useStyles = makeStyles((theme) => ({
     card: {
         minHeight: 450,
-        maxHeight: 450,
+        maxHeight: 550,
         minWidth: 330,
-        maxWidth: 360,
+        width:'95%',
+        height: '95%',
+        maxWidth: 475,
         borderRadius: 7,
         boxShadow: '0 16px 40px -12.125px rgba(0,0,0,0.4)',
-        margin: 15,
+        margin: 7.5,
 
     },
     card_container: {
-        minWidth: '22vw',
         display:'flex',
         justifyContent: 'center'
     },

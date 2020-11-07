@@ -7,18 +7,21 @@ import axios from 'axios';
 const useStyles = makeStyles((theme) => ({
 
     root: {
-        paddingTop: '7vh',
-        paddingLeft: '7vw',
-        paddingRight: '7vw',
+        paddingTop: 55,
+        paddingLeft: '13vw',
+        paddingRight: '13vw',
     },
     text: {
         fontFamily: 'Quicksand',
         marginBottom: '6vh'
     },
     cards: {
-        display:'flex',
-        flexWrap: 'wrap',
-        justifyContent: 'center',
+        display:'grid',
+        gridTemplateColumns: 'repeat(3, 1fr)',
+        justifyContent: 'space-evenly',
+        '@media (max-width: 400px)' : {
+            gridTemplateColumns: 'repeat(1, 1fr)',
+        }
     }
 }));
 

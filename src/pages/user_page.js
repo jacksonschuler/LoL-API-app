@@ -27,7 +27,7 @@ const useStyles = makeStyles((theme) => ({
         top: 0,
         left: 0,
         width: '100%',
-        height: '60vh',
+        height: 400,
         zIndex: -1,
     },
     footer: {
