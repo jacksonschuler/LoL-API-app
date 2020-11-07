@@ -20,12 +20,18 @@ const useStyles = makeStyles((theme) => ({
         borderRadius: 7,
         minWidth: 275,
         maxWidth: 275,
-        minHeight: 444.25, //nice
+        minHeight: 444.25,
         boxShadow: '0 16px 40px -12.125px rgba(0,0,0,0.4)',
-        marginLeft: 13,
+        marginTop: 15,
+        marginLeft: 23,
+    },
+    container: {
+        display: 'flex',
+        justifyContent: 'center',
     },
     cards: {
         display: 'flex',
+        flexWrap: 'wrap',
     },
     img_container: {
         display: 'flex',
@@ -108,7 +114,8 @@ function RankedCard(props) {
       <div className={classes.cards}>
           {rankedInfo !== undefined ? (
               rankedInfo.map(rank =>
-                      <Card className={classes.card} key={rank.queueType}>
+                  <div className={classes.container} key={rank.queueType}>
+                      <Card className={classes.card}>
                           <div className={classes.text}>
                               <h4>{determineRankedType(rank.queueType)}</h4>
                           </div>
@@ -125,6 +132,7 @@ function RankedCard(props) {
                               {rank.wins}W - {rank.losses}L
                           </div>
                       </Card>
+                  </div>
                 )
           ) : (
               <div className={classes.cards}>

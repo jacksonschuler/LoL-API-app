@@ -16,7 +16,6 @@ const useStyles = makeStyles((theme) => ({
         paddingLeft: 24,
         paddingTop: 14,
         paddingBottom: 13,
-        minWidth: '60vh',
         flex: 1,
         marginLeft: theme.spacing(1),
     },

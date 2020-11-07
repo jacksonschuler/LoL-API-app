@@ -8,7 +8,10 @@ import mastery_5 from '../../static_data/5.png';
 
 const useStyles = makeStyles((theme) => ({
     card: {
-        minHeight: '60vh',
+        minHeight: 450,
+        maxHeight: 450,
+        minWidth: 330,
+        maxWidth: 360,
         borderRadius: 7,
         boxShadow: '0 16px 40px -12.125px rgba(0,0,0,0.4)',
         marginBottom: 0,

@@ -43,12 +43,12 @@ function MostPlayedChamps(props) {
     let [masteryInfo, setMasteryInfo] = useState(undefined);
 
     useEffect(()=> {
-        axios.get('https://us-central1-lol-api-project.cloudfunctions.net/getChampsJSON?version=10.22.1').then(res => {
+        let game_version = config.GAME_VERSION;
+        axios.get('https://us-central1-lol-api-project.cloudfunctions.net/getChampsJSON?version=' + game_version).then(res => {
             setChamps(res.data);
         });
         const api_call = 'https://us-central1-lol-api-project.cloudfunctions.net/getMasteryChamps?id=' + props.id;
         axios.get(api_call).then((res) => {
-            // we need a check here if the account exists...
             if (res.data.length < 6) {
                 setMasteryInfo(res.data);
             } else {

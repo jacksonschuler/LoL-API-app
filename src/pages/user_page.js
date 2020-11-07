@@ -17,12 +17,13 @@ import MostPlayedChamps from "../components/user_page/most_played_champs";
 const useStyles = makeStyles((theme) => ({
     cards: {
         display: 'flex',
+        flexWrap: 'wrap',
+        justifyContent: 'center'
     },
     card_container: {
-        marginTop: 120,
-        display: 'flex',
-        justifyContent: 'center',
-        alignItems: 'center'
+        marginTop: 100,
+        paddingLeft: '7vw',
+        paddingRight: '7vw',
     },
     color_divider: {
         backgroundImage: 'linear-gradient(to right, #bc4e9c, #f80759)',

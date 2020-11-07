@@ -24,6 +24,7 @@ const useStyles = makeStyles(() => ({
     },
     search: {
         marginLeft: 'auto',
+        minWidth:'30%',
     }
 }));
 

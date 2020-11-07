@@ -11,7 +11,8 @@ const useStyles = makeStyles((theme) => ({
         maxWidth: 275,
         minHeight: 420, //nice
         boxShadow: '0 16px 40px -12.125px rgba(0,0,0,0.4)',
-        backgroundColor: '#fff'
+        backgroundColor: '#fff',
+        marginTop: 15,
     },
     card_wave_svg: {
         position: 'relative',
@@ -68,6 +69,10 @@ const useStyles = makeStyles((theme) => ({
         marginBottom: -35,
         fontFamily: 'Quicksand',
         color:'#7b7b7b'
+    },
+    container: {
+        display: 'flex',
+        justifyContent: 'center',
     }
 }));
 
@@ -76,6 +81,8 @@ const useStyles = makeStyles((theme) => ({
 *  - wanna make the level lighter gray
 *  Series of avatars on the bottom displaying:
 *  region
+*
+*  THIS LOOKS GOOD ON MOBILE
 *
 * */
 
@@ -88,7 +95,7 @@ function SummonerCard(props) {
     const region = props.region;
 
     return(
-        <div>
+        <div className={classes.container}>
             <Card className={classes.card}>
                 <div style={{height: 255, marginBottom: -90}}/>
                 <div style={{marginBottom: 25}}/>
