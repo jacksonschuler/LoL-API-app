@@ -18,7 +18,6 @@ const useStyles = makeStyles((theme) => ({
     cards: {
         display:'flex',
         flexWrap: 'wrap',
-        alignItems: 'center',
         justifyContent: 'center',
     }
 }));

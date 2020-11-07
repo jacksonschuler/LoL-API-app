@@ -14,12 +14,13 @@ const useStyles = makeStyles((theme) => ({
         maxWidth: 360,
         borderRadius: 7,
         boxShadow: '0 16px 40px -12.125px rgba(0,0,0,0.4)',
-        marginBottom: 0,
+        margin: 15,
+
     },
     card_container: {
-        minWidth: '25vw',
-        minHeight: '65vh',
-        marginRight: 25,
+        minWidth: '22vw',
+        display:'flex',
+        justifyContent: 'center'
     },
     img: {
         width: '100%',
