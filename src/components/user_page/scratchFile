@@ -1,0 +1,34 @@
+items i need:
+- total damage done
+- total time in game on a champ
+- total amount of cs on a champ
+- number of kills, deaths, assists
+- Wins and Losses
+
+
+This query will get me matches where schulerj account played 45 (Veigar) and 38 (Kassadin) Ranked solo, flex, and 5v5 draft
+QueueID 400 - standard 5v5 draft pick games
+QueueID 420 - Ranked solo duo
+QueueID 440 - Ranked flex
+QueueID 450 - ARAM
+
+https://na1.api.riotgames.com/lol/match/v4/matchlists/by-account/xfkhiFeV_Mb0uhSbZ9xb_6oPHKoBRB5qc5jfPSmyzRSGZ44?champion=45&champion=38&queue=400&queue=420&queue=440
+
+
+This query will get a match based on a match id (3634204675)
+
+https://na1.api.riotgames.com/lol/match/v4/matches/3634204675
+
+From the match get, schulerj's participant ID: use this id to get schulerj's match info
+- we can get KDA here
+- whether the game was won or lost
+- damage dealt
+- gold per min in 10 min intervals.
+- creeps per min in 10 min intervals. (sum and divide for an average rate in a given game)
+- gameDuration - match duration in seconds
+
+
+
+run query(1) get the matches, arguments for this (top 6 champs, can be expanded) and ranked flex/solo and 5v5 draft
+
+for each match query the match info and get the corresponding info

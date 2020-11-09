@@ -62,6 +62,15 @@ const useStyles = makeStyles((theme) => ({
 
 }));
 
+/*
+*  average dmg
+*  average gold/min
+*  KDA
+*  role?
+*  WR
+*  Avg CS/min
+* */
+
 function determine_mastery(level) {
     switch(level){
         case 7:

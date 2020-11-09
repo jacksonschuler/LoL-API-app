@@ -43,7 +43,8 @@ function UserPage(props) {
         const api_call = 'https://us-central1-lol-api-project.cloudfunctions.net/getSummoner?name=' + props.match.params.name;
         axios.get(api_call).then((res) => {
             // we need a check here if the account exists...
-            setSummonerInfo(res.data)
+            setSummonerInfo(res.data);
+            console.log(res.data);
         })
     }, [props.match.params.name]);
 
