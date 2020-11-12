@@ -44,6 +44,7 @@ function MostPlayedChamps(props) {
     let [champs, setChamps] = useState({});
     let [masteryInfo, setMasteryInfo] = useState(undefined);
 
+    //TODO move this the user tabs, to avoid the query being ran multiple times rather than just on the page load
     useEffect(()=> {
         let game_version = config.GAME_VERSION;
         axios.get('https://us-central1-lol-api-project.cloudfunctions.net/getChampsJSON?version=' + game_version).then(res => {

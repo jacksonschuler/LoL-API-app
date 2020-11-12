@@ -7,6 +7,7 @@ import TabPanel from '@material-ui/lab/TabPanel';
 import {makeStyles} from "@material-ui/core/styles";
 import MostPlayedChamps from "./most_played_champs";
 import axios from "axios";
+import MatchCard from "./match_card";
 
 
 const useStyles = makeStyles((theme) => ({
@@ -32,6 +33,7 @@ const useStyles = makeStyles((theme) => ({
 function UserTabs(props) {
     const classes = useStyles();
     const [value, setValue] = React.useState('1');
+    const [matchesState, setMatchesState] = React.useState(undefined);
 
     const handleChange = (event, newValue) => {
         setValue(newValue);
@@ -39,10 +41,18 @@ function UserTabs(props) {
 
     useEffect(() => {
         // get the 10 most recent matches
+        let matches = [];
         const api_call = 'https://us-central1-lol-api-project.cloudfunctions.net/getMatches?acc_id=' + props.account_id;
         axios.get(api_call).then((res) => {
-            console.log(res.data);
-        })
+            res.data.forEach(match => {
+                axios.get('https://us-central1-lol-api-project.cloudfunctions.net/getMatch?match_id=' + match).then(response => {
+                    matches.push(response.data);
+                    if (matches.length === 10) {
+                        setMatchesState(matches);
+                    }
+                })
+            });
+        });
     }, []);
 
     return(
@@ -59,7 +69,17 @@ function UserTabs(props) {
                         id={props.id}
                     />
                 </TabPanel>
-                <TabPanel value="2">Item Two</TabPanel>
+                <TabPanel value="2">
+                    {matchesState ? (
+                        matchesState.map(match =>
+                            <MatchCard
+                                key={match.gameId}
+                                test={match.gameId}
+                                match={match}
+                            />
+                        )
+                        ) : (<div>nah chief</div>)}
+                </TabPanel>
             </TabContext>
         </div>
     )
