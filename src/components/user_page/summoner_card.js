@@ -90,7 +90,7 @@ function SummonerCard(props) {
     const classes = useStyles();
 
     const name = props.name;
-    const profile_icon = `http://ddragon.leagueoflegends.com/cdn/10.22.1/img/profileicon/${props.profile_icon}.png`;
+    const profile_icon = `http://ddragon.leagueoflegends.com/cdn/10.23.1/img/profileicon/${props.profile_icon}.png`;
     const level = props.level;
     const region = props.region;
 

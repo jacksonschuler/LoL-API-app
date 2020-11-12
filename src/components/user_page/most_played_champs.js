@@ -54,15 +54,15 @@ function MostPlayedChamps(props) {
             if (res.data.length < 6) {
                 setMasteryInfo(res.data);
             } else {
-                setMasteryInfo(res.data.slice(0,6))
+                setMasteryInfo(res.data.slice(0,6));
             }
-        })
+        });
+
     }, [props.id]);
 
     const classes = useStyles();
     return(
         <div className={classes.root}>
-            <h2 className={classes.text}>Most Played Champions</h2>
             <div className={classes.cards}>
                 {masteryInfo ? (
                     masteryInfo.map(champ =>

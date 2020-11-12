@@ -25,7 +25,8 @@
       "dragonKills": 2,
       "vilemawKills": 0,
       "riftHeraldKills": 1,
-      "dominionVictoryScore": 0,
+      "dominionVictoryScore": 0
+    },
     {
       "teamId": 200,
       "win": "Fail",
