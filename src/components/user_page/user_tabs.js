@@ -70,15 +70,21 @@ function UserTabs(props) {
                     />
                 </TabPanel>
                 <TabPanel value="2">
-                    {matchesState ? (
-                        matchesState.map(match =>
-                            <MatchCard
-                                key={match.gameId}
-                                test={match.gameId}
-                                match={match}
-                            />
-                        )
-                        ) : (<div>nah chief</div>)}
+                    {/*{matchesState ? (*/}
+                    {/*    matchesState.map(match =>*/}
+                    {/*        <MatchCard*/}
+                    {/*            key={match.gameId}*/}
+                    {/*            test={match.gameId}*/}
+                    {/*            match={match}*/}
+                    {/*        />*/}
+                    {/*    )*/}
+                    {/*    ) : (<div>nah chief</div>)}*/}
+                    <div>
+                        <MatchCard
+                            test={"LOL"}
+                            summonerName={props.summonerName}
+                        />
+                    </div>
                 </TabPanel>
             </TabContext>
         </div>

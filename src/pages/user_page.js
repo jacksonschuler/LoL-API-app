@@ -5,7 +5,6 @@ import FeedbackCards from "../components/user_page/feedback/feedback_cards";
 import RankedCard from "../components/user_page/ranked_card";
 import {makeStyles} from "@material-ui/core/styles";
 import UserNav from "../components/user_page/nav_bar";
-import MostPlayedChamps from "../components/user_page/most_played_champs";
 import UserTabs from "../components/user_page/user_tabs";
 /**
  * Info i wanna show
@@ -74,6 +73,7 @@ function UserPage(props) {
                     <UserTabs
                         id={summonerInfo.id}
                         account_id={summonerInfo.accountId}
+                        summonerName={summonerInfo.name}
                     />
                 </div>) : (
                     <div/>
