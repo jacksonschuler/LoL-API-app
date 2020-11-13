@@ -11,12 +11,14 @@ const useStyles = makeStyles((theme) => ({
         margin: 7.5,
         padding: 5,
         display: 'flex',
-        justifyContent: 'space-between',
+        // justifyContent: 'space-between',
+
     },
     card_container: {
         display:'flex',
         justifyContent: 'center',
         padding: 10,
+        alignItems: 'center'
     },
     indicator: {
         margin: 7.5,
@@ -27,6 +29,48 @@ const useStyles = makeStyles((theme) => ({
         paddingTop: 5,
         paddingBottom:5,
         width: '2vw',
+    },
+    rune_container: {
+        width: 75,
+        height: '100%',
+        display: 'grid',
+        justifyContent: 'center',
+    },
+    champ_icon_container: {
+        width: 100,
+        height: '100%',
+        backgroundColor: 'blue',
+    },
+    summoners_container: {
+        width: 50,
+        height: '100%',
+        backgroundColor: 'purple'
+    },
+    runes_primary: {
+        height: 50,
+        width: 50,
+        backgroundImage: 'url(http://ddragon.leagueoflegends.com/cdn/img/perk-images/Styles/Sorcery/SummonAery/SummonAery.png)',
+        marginTop: 20,
+        backgroundSize: 'cover',
+        backgroundRepeat: 'no-repeat',
+    },
+    runes_secondary: {
+        height: 20,
+        width:20,
+        backgroundImage: 'url(http://ddragon.leagueoflegends.com/cdn/img/perk-images/Styles/7200_Domination.png)',
+        backgroundSize: 'cover',
+        backgroundRepeat: 'no-repeat',
+        margin: 'auto',
+        marginTop: -20
+    },
+    champ_img: {
+        width: 80,
+        height: 80,
+        borderRadius: 35,
+        borderStyle: 'solid',
+        borderColor: '#fff',
+        borderWidth: '2px',
+        backgroundImage: 'url()'
     }
 }));
 
@@ -50,12 +94,18 @@ function bgColor(win_bool) {
     }
 }
 
+//going to use static object for this
+
+//I can use this to get primary
+//http://ddragon.leagueoflegends.com/cdn/img/perk-images/Styles/Sorcery/SummonAery/SummonAery.png
+
+//I can use this to get Secondary
+//http://ddragon.leagueoflegends.com/cdn/img/perk-images/Styles/7200_Domination.png
 /*
+
 ID conversions required
 - champ
 - runes, primary and secondary
-- summoner spells
-- items
  */
 
 function MatchCard(props) {
@@ -71,6 +121,14 @@ function MatchCard(props) {
         <div className={classes.card_container}>
             <Card className={classes.indicator} style={{backgroundColor: bgColor(main_obj.stats.win)}}/>
             <Card className={classes.card}>
+                <div className={classes.rune_container}>
+                    <div className={classes.runes_primary}/>
+                    <div className={classes.runes_secondary}/>
+                </div>
+                <div className={classes.champ_icon_container}>
+                </div>
+                <div className={classes.summoners_container}>
+                </div>
             </Card>
         </div>
     )
