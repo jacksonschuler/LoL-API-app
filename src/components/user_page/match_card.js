@@ -31,20 +31,27 @@ const useStyles = makeStyles((theme) => ({
         width: '2vw',
     },
     rune_container: {
-        width: 75,
+        marginLeft: 25,
+        width: 60,
         height: '100%',
         display: 'grid',
         justifyContent: 'center',
     },
     champ_icon_container: {
-        width: 100,
+        width: 95,
         height: '100%',
-        backgroundColor: 'blue',
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'center'
     },
     summoners_container: {
+        marginTop:12,
         width: 50,
-        height: '100%',
-        backgroundColor: 'purple'
+        height: '80%',
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'center',
+        flexWrap: 'wrap'
     },
     runes_primary: {
         height: 50,
@@ -66,11 +73,19 @@ const useStyles = makeStyles((theme) => ({
     champ_img: {
         width: 80,
         height: 80,
-        borderRadius: 35,
-        borderStyle: 'solid',
-        borderColor: '#fff',
-        borderWidth: '2px',
-        backgroundImage: 'url()'
+        borderRadius: 7,
+        backgroundImage: 'url(http://ddragon.leagueoflegends.com/cdn/10.23.1/img/champion/Aatrox.png)',
+        backgroundSize: 'cover',
+        backgroundRepeat: 'no-repeat',
+        boxShadow: '0 16px 40px -12.125px rgba(0,0,0,0.3)',
+    },
+    summoner_spell: {
+        height:40,
+        width: 40,
+        backgroundColor: 'red',
+        backgroundSize: 'cover',
+        backgroundRepeat: 'no-repeat',
+        borderRadius: 5,
     }
 }));
 
@@ -126,8 +141,11 @@ function MatchCard(props) {
                     <div className={classes.runes_secondary}/>
                 </div>
                 <div className={classes.champ_icon_container}>
+                    <div className={classes.champ_img}/>
                 </div>
                 <div className={classes.summoners_container}>
+                    <div className={classes.summoner_spell} style={{backgroundImage: 'url(http://ddragon.leagueoflegends.com/cdn/10.23.1/img/spell/SummonerFlash.png)'}}/>
+                    <div className={classes.summoner_spell} style={{backgroundImage: 'url(http://ddragon.leagueoflegends.com/cdn/10.23.1/img/spell/SummonerTeleport.png)'}}/>
                 </div>
             </Card>
         </div>
