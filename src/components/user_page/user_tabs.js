@@ -84,6 +84,7 @@ function UserTabs(props) {
                             test={"LOL"}
                             summonerName={props.summonerName}
                         />
+
                     </div>
                 </TabPanel>
             </TabContext>
