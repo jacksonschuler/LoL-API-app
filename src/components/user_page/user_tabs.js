@@ -8,6 +8,7 @@ import {makeStyles} from "@material-ui/core/styles";
 import MostPlayedChamps from "./most_played_champs";
 import axios from "axios";
 import MatchCard from "./match_card";
+import Matches from "./Matches";
 
 
 const useStyles = makeStyles((theme) => ({
@@ -54,13 +55,10 @@ function UserTabs(props) {
                     />
                 </TabPanel>
                 <TabPanel value="2">
-                    {/*<div>*/}
-                    {/*    <MatchCard*/}
-                    {/*        test={"LOL"}*/}
-                    {/*        summonerName={props.summonerName}*/}
-                    {/*    />*/}
-
-                    {/*</div>*/}
+                    <Matches
+                        summonerName={props.summonerName}
+                        account_id={props.account_id}
+                    />
                 </TabPanel>
             </TabContext>
         </div>

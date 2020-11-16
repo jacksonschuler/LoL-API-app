@@ -113,7 +113,7 @@ exports.getMatches = functions.https.onRequest(async (req, res) => {
             });
         }
         axios.get('https://na1.api.riotgames.com/lol/match/v4/matchlists/by-account/' + account_id
-            + '?queue=420&endIndex=10&api_key=' + api_key).then(response => {
+            + '?queue=420&endIndex=5&api_key=' + api_key).then(response => {
                 return res.status(200).json(
                     response.data.matches.map(item=>item.gameId)
                 )

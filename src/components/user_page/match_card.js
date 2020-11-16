@@ -7,24 +7,24 @@ import axios from "axios";
 
 const useStyles = makeStyles((theme) => ({
     card: {
-        width: '60vw',
+        width: '855px',
         height: '15vh',
         borderRadius: 7,
         boxShadow: '0 16px 40px -12.125px rgba(0,0,0,0.4)',
-        // justifyContent: 'space-between',
     },
     card_content: {
         position: 'relative',
         height: '100%',
         display: 'flex',
         alignItems: 'center',
+        justifyContent: 'space-between',
         zIndex: 5,
     },
     card_container: {
         display:'flex',
         justifyContent: 'center',
         alignItems: 'center',
-        marginBottom: 50
+        marginBottom: 9
     },
     rune_container: {
         marginLeft: 10,
@@ -49,7 +49,6 @@ const useStyles = makeStyles((theme) => ({
         flexWrap: 'wrap'
     },
     runes_primary: {
-        marginTop:15,
         height: 50,
         width: 50,
         backgroundImage: 'url(http://ddragon.leagueoflegends.com/cdn/img/perk-images/Styles/Sorcery/SummonAery/SummonAery.png)',
@@ -59,7 +58,6 @@ const useStyles = makeStyles((theme) => ({
     runes_secondary: {
         height: 20,
         width:20,
-        marginTop: -15,
         backgroundImage: 'url(http://ddragon.leagueoflegends.com/cdn/img/perk-images/Styles/7200_Domination.png)',
         backgroundSize: 'cover',
         backgroundRepeat: 'no-repeat',
@@ -102,6 +100,10 @@ const useStyles = makeStyles((theme) => ({
     kda_text: {
         fontFamily: 'Quicksand',
         fontWeight: 300,
+    },
+    player_info: {
+        display: 'flex',
+        alignItems: 'center',
     }
 }));
 
@@ -181,9 +183,9 @@ function MatchCard(props) {
 
     let static_match = require('./match');
 
-    let main_id = getParticipantID(props.summonerName, props.match.participantIdentities); // get the participant idea of the queried summoner
+    let main_id = getParticipantID(props.summonerName, static_match.participantIdentities); // get the participant idea of the queried summoner
 
-    let main_obj = getParticipantTimeline(main_id, props.match.participants);
+    let main_obj = getParticipantTimeline(main_id, static_match.participants);
 
     useEffect(() => {
         let game_version = config.GAME_VERSION;
@@ -196,16 +198,18 @@ function MatchCard(props) {
         <div className={classes.card_container}>
             <Card className={classes.card}>
                 <div className={classes.card_content}>
-                    <div className={classes.rune_container}>
-                        <div className={classes.runes_primary} style={{backgroundImage: `url(${getRune(true, main_obj.stats.perkPrimaryStyle, main_obj.stats.perk0, runes)})`}}/>
-                        <div className={classes.runes_secondary} style={{backgroundImage: `url(${getRune(false, 0, main_obj.stats.perkSubStyle, runes)})`}}/>
-                    </div>
-                    <div className={classes.champ_icon_container}>
-                        <div className={classes.champ_img} style={{backgroundImage: `url(${'http://ddragon.leagueoflegends.com/cdn/10.23.1/img/champion/' + getChampNameFromChampID(main_obj.championId, champs) + '.png'})`}}/>
-                    </div>
-                    <div className={classes.summoners_container}>
-                        <div className={classes.summoner_spell} style={{backgroundImage: `url(${getSummonerSpellFromId(main_obj.spell1Id)})`}}/>
-                        <div className={classes.summoner_spell} style={{backgroundImage: `url(${getSummonerSpellFromId(main_obj.spell2Id)})`}}/>
+                    <div className={classes.player_info}>
+                        <div className={classes.rune_container}>
+                            <div className={classes.runes_primary} style={{backgroundImage: `url(${getRune(true, main_obj.stats.perkPrimaryStyle, main_obj.stats.perk0, runes)})`}}/>
+                            <div className={classes.runes_secondary} style={{backgroundImage: `url(${getRune(false, 0, main_obj.stats.perkSubStyle, runes)})`}}/>
+                        </div>
+                        <div className={classes.champ_icon_container}>
+                            <div className={classes.champ_img} style={{backgroundImage: `url(${'http://ddragon.leagueoflegends.com/cdn/10.23.1/img/champion/' + getChampNameFromChampID(main_obj.championId, champs) + '.png'})`}}/>
+                        </div>
+                        <div className={classes.summoners_container}>
+                            <div className={classes.summoner_spell} style={{backgroundImage: `url(${getSummonerSpellFromId(main_obj.spell1Id)})`, marginBottom: 10}}/>
+                            <div className={classes.summoner_spell} style={{backgroundImage: `url(${getSummonerSpellFromId(main_obj.spell2Id)})`}}/>
+                        </div>
                     </div>
                     <div className={classes.kda_container}>
                         <h3 className={classes.kda_text} style={{marginBottom: -30}}>{main_obj.stats.kills} / {main_obj.stats.deaths} / {main_obj.stats.assists}</h3>

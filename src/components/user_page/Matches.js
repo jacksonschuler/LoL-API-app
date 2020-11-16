@@ -15,7 +15,7 @@ function Matches(props) {
             res.data.forEach(match => {
                 axios.get('https://us-central1-lol-api-project.cloudfunctions.net/getMatch?match_id=' + match).then(response => {
                     matches.push(response.data);
-                    if (matches.length === 10) {
+                    if (matches.length === 5) {
                         setMatchesState(matches);
                     }
                 })
@@ -25,15 +25,18 @@ function Matches(props) {
 
     return(
         <div>
-            {matchesState ? (
-                matchesState.map(match =>
-                    <MatchCard
-                        key={match.gameId}
-                        summonerName={props.summonerName}
-                        match={match}
-                    />
-                )
-            ) : (<div>nah chief</div>)}
+            {/*{matchesState ? (*/}
+            {/*    matchesState.map(match =>*/}
+            {/*        <MatchCard*/}
+            {/*            key={match.gameId}*/}
+            {/*            summonerName={props.summonerName}*/}
+            {/*            match={match}*/}
+            {/*        />*/}
+            {/*    )*/}
+            {/*) : (<div>nah chief</div>)}*/}
+            <MatchCard
+                summonerName={'schulerj'}
+            />
         </div>
     )
 }

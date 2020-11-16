@@ -71,14 +71,10 @@ function UserPage(props) {
             <div className={classes.color_divider}/>
             {summonerInfo ? (
                 <div>
-                    {/*<UserTabs*/}
-                    {/*    id={summonerInfo.id}*/}
-                    {/*    account_id={summonerInfo.accountId}*/}
-                    {/*    summonerName={summonerInfo.name}*/}
-                    {/*/>*/}
-                    <Matches
-                        summonerName={summonerInfo.name}
+                    <UserTabs
+                        id={summonerInfo.id}
                         account_id={summonerInfo.accountId}
+                        summonerName={summonerInfo.name}
                     />
                 </div>) : (
                     <div/>
