@@ -6,6 +6,7 @@ import RankedCard from "../components/user_page/ranked_card";
 import {makeStyles} from "@material-ui/core/styles";
 import UserNav from "../components/user_page/nav_bar";
 import UserTabs from "../components/user_page/user_tabs";
+import Matches from "../components/user_page/Matches";
 /**
  * Info i wanna show
  * Icon
@@ -70,10 +71,14 @@ function UserPage(props) {
             <div className={classes.color_divider}/>
             {summonerInfo ? (
                 <div>
-                    <UserTabs
-                        id={summonerInfo.id}
-                        account_id={summonerInfo.accountId}
+                    {/*<UserTabs*/}
+                    {/*    id={summonerInfo.id}*/}
+                    {/*    account_id={summonerInfo.accountId}*/}
+                    {/*    summonerName={summonerInfo.name}*/}
+                    {/*/>*/}
+                    <Matches
                         summonerName={summonerInfo.name}
+                        account_id={summonerInfo.accountId}
                     />
                 </div>) : (
                     <div/>
