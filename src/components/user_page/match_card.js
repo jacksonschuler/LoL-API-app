@@ -51,14 +51,12 @@ const useStyles = makeStyles((theme) => ({
     runes_primary: {
         height: 50,
         width: 50,
-        backgroundImage: 'url(http://ddragon.leagueoflegends.com/cdn/img/perk-images/Styles/Sorcery/SummonAery/SummonAery.png)',
         backgroundSize: 'cover',
         backgroundRepeat: 'no-repeat',
     },
     runes_secondary: {
         height: 20,
         width:20,
-        backgroundImage: 'url(http://ddragon.leagueoflegends.com/cdn/img/perk-images/Styles/7200_Domination.png)',
         backgroundSize: 'cover',
         backgroundRepeat: 'no-repeat',
         margin: 'auto',
@@ -67,7 +65,6 @@ const useStyles = makeStyles((theme) => ({
         width: 80,
         height: 80,
         borderRadius: 7,
-        backgroundImage: 'url(http://ddragon.leagueoflegends.com/cdn/10.23.1/img/champion/Aatrox.png)',
         backgroundSize: 'cover',
         backgroundRepeat: 'no-repeat',
         boxShadow: '0 16px 40px -12.125px rgba(0,0,0,0.3)',
@@ -79,14 +76,6 @@ const useStyles = makeStyles((theme) => ({
         backgroundSize: 'cover',
         backgroundRepeat: 'no-repeat',
         borderRadius: 5,
-    },
-    svg: {
-        position: 'relative',
-        width: 350,
-        height: 350,
-        marginTop: -200,
-        marginLeft: -90,
-        zIndex: 0,
     },
     kda_container: {
         display: 'flex',
@@ -104,6 +93,20 @@ const useStyles = makeStyles((theme) => ({
     player_info: {
         display: 'flex',
         alignItems: 'center',
+    },
+    items_container: {
+        display: 'grid',
+        gridTemplateColumns: '35px 35px 35px',
+        gridTemplateRows: '35px 35px',
+        columnGap: '5px',
+        rowGap: '5px',
+        marginRight: 30,
+    },
+    item: {
+        backgroundColor: '#a9a9a9',
+        borderRadius: 5,
+        backgroundSize: 'cover',
+        backgroundRepeat: 'no-repeat',
     }
 }));
 
@@ -215,10 +218,21 @@ function MatchCard(props) {
                         <h3 className={classes.kda_text} style={{marginBottom: -30}}>{main_obj.stats.kills} / {main_obj.stats.deaths} / {main_obj.stats.assists}</h3>
                         <h4 className={classes.kda_text} style={{fontWeight: 400,}}>{computeKDA(main_obj.stats.kills, main_obj.stats.deaths, main_obj.stats.assists)} KDA</h4>
                     </div>
+                    <div className={classes.items_container}>
+                        <div className={classes.item} style={{backgroundImage: `url(${process.env.PUBLIC_URL + '/items/' + main_obj.stats.item0 + '.png'})`}}>
+                        </div>
+                        <div className={classes.item} style={{backgroundImage: `url(${process.env.PUBLIC_URL + '/items/' + main_obj.stats.item1 + '.png'})`}}>
+                        </div>
+                        <div className={classes.item} style={{backgroundImage: `url(${process.env.PUBLIC_URL + '/items/' + main_obj.stats.item2 + '.png'})`}}>
+                        </div>
+                        <div className={classes.item} style={{backgroundImage: `url(${process.env.PUBLIC_URL + '/items/' + main_obj.stats.item3 + '.png'})`}}>
+                        </div>
+                        <div className={classes.item} style={{backgroundImage: `url(${process.env.PUBLIC_URL + '/items/'+ main_obj.stats.item4 + '.png'})`}}>
+                        </div>
+                        <div className={classes.item} style={{backgroundImage: `url(${process.env.PUBLIC_URL + '/items/' + main_obj.stats.item5 + '.png'})`}}>
+                        </div>
+                    </div>
                 </div>
-                <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" className={classes.svg}>
-                    <path fill={bgColor(main_obj.stats.win)} d="M41.8,-74.6C53.3,-65.7,61.3,-52.8,70.4,-39.8C79.4,-26.7,89.6,-13.3,91.6,1.1C93.6,15.6,87.4,31.3,77.2,42.5C67.1,53.7,53,60.5,39.4,65.8C25.9,71.1,13,74.9,-1.5,77.4C-15.9,80,-31.8,81.3,-41.3,73.7C-50.8,66.1,-53.8,49.5,-59.8,35.7C-65.7,21.9,-74.5,11,-78.5,-2.3C-82.4,-15.5,-81.4,-31,-75.6,-44.9C-69.8,-58.9,-59.1,-71.3,-45.7,-79.2C-32.2,-87,-16.1,-90.3,-0.5,-89.4C15.1,-88.5,30.2,-83.5,41.8,-74.6Z" transform="translate(100 100)" />
-                </svg>
             </Card>
         </div>
     )
