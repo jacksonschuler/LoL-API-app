@@ -81,7 +81,7 @@ const useStyles = makeStyles((theme) => ({
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'center',
-        marginLeft:60,
+
         width: 100,
         height: '100%',
         flexWrap: 'wrap',
@@ -107,6 +107,16 @@ const useStyles = makeStyles((theme) => ({
         borderRadius: 5,
         backgroundSize: 'cover',
         backgroundRepeat: 'no-repeat',
+    },
+    match_info: {
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'center',
+        marginLeft:60,
+        marginRight: 50,
+        width: 100,
+        height: '100%',
+        flexWrap: 'wrap',
     }
 }));
 
@@ -163,6 +173,23 @@ function getChampNameFromChampID(id, champions){
     }
 }
 
+function getKP(myKills, myAssists, totalKills){
+    return (((myKills + myAssists)/totalKills) * 100).toFixed(1)
+}
+
+function getTotalKills(match, teamId) {
+    let num_kills = 0;
+    let filtered_match = match.participants.filter(player => player.teamId === teamId);
+    filtered_match.forEach(player => {
+        num_kills += player.stats.kills
+    });
+    return num_kills
+}
+
+function getCSPerMin(totalCS, matchLength) {
+    return (totalCS/matchLength * 60).toFixed(1)
+}
+
 //going to use static object for this
 
 //I can use this to get primary
@@ -195,7 +222,7 @@ function MatchCard(props) {
         axios.get('https://us-central1-lol-api-project.cloudfunctions.net/getChampsJSON?version=' + game_version).then(res => {
             setChamps(res.data);
         });
-    });
+    }, []);
 
     return(
         <div className={classes.card_container}>
@@ -217,6 +244,11 @@ function MatchCard(props) {
                     <div className={classes.kda_container}>
                         <h3 className={classes.kda_text} style={{marginBottom: -30}}>{main_obj.stats.kills} / {main_obj.stats.deaths} / {main_obj.stats.assists}</h3>
                         <h4 className={classes.kda_text} style={{fontWeight: 400,}}>{computeKDA(main_obj.stats.kills, main_obj.stats.deaths, main_obj.stats.assists)} KDA</h4>
+                    </div>
+                    <div className={classes.match_info}>
+                        <h4 className={classes.kda_text} style={{marginBottom: -30}}>Level {main_obj.stats.champLevel}</h4>
+                        <h4 className={classes.kda_text} style={{marginBottom: -30}}>{main_obj.stats.totalMinionsKilled + main_obj.stats.neutralMinionsKilled} ({getCSPerMin(main_obj.stats.totalMinionsKilled + main_obj.stats.neutralMinionsKilled, static_match.gameDuration)}) CS</h4>
+                        <h4 className={classes.kda_text}>Kill P. {getKP(main_obj.stats.kills, main_obj.stats.assists, getTotalKills(static_match, main_obj.teamId))} %</h4>
                     </div>
                     <div className={classes.items_container}>
                         <div className={classes.item} style={{backgroundImage: `url(${process.env.PUBLIC_URL + '/items/' + main_obj.stats.item0 + '.png'})`}}>
