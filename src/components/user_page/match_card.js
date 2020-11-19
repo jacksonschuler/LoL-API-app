@@ -213,9 +213,9 @@ function MatchCard(props) {
 
     let static_match = require('./match');
 
-    let main_id = getParticipantID(props.summonerName, static_match.participantIdentities); // get the participant idea of the queried summoner
+    let main_id = getParticipantID(props.summonerName, props.match.participantIdentities); // get the participant idea of the queried summoner
 
-    let main_obj = getParticipantTimeline(main_id, static_match.participants);
+    let main_obj = getParticipantTimeline(main_id, props.match.participants);
 
     useEffect(() => {
         let game_version = config.GAME_VERSION;
@@ -247,8 +247,8 @@ function MatchCard(props) {
                     </div>
                     <div className={classes.match_info}>
                         <h4 className={classes.kda_text} style={{marginBottom: -30}}>Level {main_obj.stats.champLevel}</h4>
-                        <h4 className={classes.kda_text} style={{marginBottom: -30}}>{main_obj.stats.totalMinionsKilled + main_obj.stats.neutralMinionsKilled} ({getCSPerMin(main_obj.stats.totalMinionsKilled + main_obj.stats.neutralMinionsKilled, static_match.gameDuration)}) CS</h4>
-                        <h4 className={classes.kda_text}>Kill P. {getKP(main_obj.stats.kills, main_obj.stats.assists, getTotalKills(static_match, main_obj.teamId))} %</h4>
+                        <h4 className={classes.kda_text} style={{marginBottom: -30}}>{main_obj.stats.totalMinionsKilled + main_obj.stats.neutralMinionsKilled} ({getCSPerMin(main_obj.stats.totalMinionsKilled + main_obj.stats.neutralMinionsKilled, props.match.gameDuration)}) CS</h4>
+                        <h4 className={classes.kda_text}>Kill P. {getKP(main_obj.stats.kills, main_obj.stats.assists, getTotalKills(props.match, main_obj.teamId))} %</h4>
                     </div>
                     <div className={classes.items_container}>
                         <div className={classes.item} style={{backgroundImage: `url(${process.env.PUBLIC_URL + '/items/' + main_obj.stats.item0 + '.png'})`}}>

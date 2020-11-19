@@ -25,18 +25,18 @@ function Matches(props) {
 
     return(
         <div>
-            {/*{matchesState ? (*/}
-            {/*    matchesState.map(match =>*/}
-            {/*        <MatchCard*/}
-            {/*            key={match.gameId}*/}
-            {/*            summonerName={props.summonerName}*/}
-            {/*            match={match}*/}
-            {/*        />*/}
-            {/*    )*/}
-            {/*) : (<div>nah chief</div>)}*/}
-            <MatchCard
-                summonerName={'schulerj'}
-            />
+            {matchesState ? (
+                matchesState.map(match =>
+                    <MatchCard
+                        key={match.gameId}
+                        summonerName={props.summonerName}
+                        match={match}
+                    />
+                )
+            ) : (<div>nah chief</div>)}
+            {/*<MatchCard*/}
+            {/*    summonerName={'schulerj'}*/}
+            {/*/>*/}
         </div>
     )
 }

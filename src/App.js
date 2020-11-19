@@ -3,6 +3,8 @@ import './App.css';
 import Landing from "./pages/landing";
 import UserPage from "./pages/user_page";
 import {BrowserRouter as Router, Switch, Route} from 'react-router-dom';
+import MatchPage from "./pages/match_page";
+import NotFound from "./pages/404";
 
 function App() {
   return (
@@ -10,7 +12,9 @@ function App() {
         <Router>
             <Switch>
                 <Route exact path='/' component={Landing}/>
-                <Route path='/summoner/:name' component={UserPage}/>
+                <Route exact path='/summoner/:name' component={UserPage}/>
+                <Route path='/summoner/:name/match/:match_id' component={MatchPage}/>
+                <Route component={NotFound}/>
             </Switch>
         </Router>
       </>

@@ -89,7 +89,7 @@ function ChampionCard(props) {
     return(
         <div className={classes.card_container}>
             <Card className={classes.card}>
-                <CardMedia className={classes.img} style={{backgroundImage:`linear-gradient(to bottom, rgba(245, 246, 252, 0), rgba(0, 0, 0, .7)), url(${props.img})`}}>
+                <CardMedia component={'img'} className={classes.img} style={{backgroundImage:`linear-gradient(to bottom, rgba(245, 246, 252, 0), rgba(0, 0, 0, .7)), url(${props.img})`}}>
                 </CardMedia>
                 <div className={classes.content}>
                     <h2 className={classes.text}>{props.name}</h2>
