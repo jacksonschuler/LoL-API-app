@@ -3,6 +3,7 @@ import {makeStyles} from "@material-ui/core/styles";
 import ChampionCard from "./played_champion_card";
 import config from '../../config'
 import axios from 'axios';
+import FeedbackMostPlayedGroup from "./feedback/feedback_most_played_champs";
 
 const useStyles = makeStyles((theme) => ({
 
@@ -10,10 +11,6 @@ const useStyles = makeStyles((theme) => ({
         paddingTop: 55,
         paddingLeft: '13vw',
         paddingRight: '13vw',
-    },
-    text: {
-        fontFamily: 'Quicksand',
-        marginBottom: '6vh'
     },
     cards: {
         display:'grid',
@@ -76,7 +73,9 @@ function MostPlayedChamps(props) {
                         />
                     )
                 ) : (
-                    <div/>
+                    <div>
+                        <FeedbackMostPlayedGroup/>
+                    </div>
                 )}
             </div>
         </div>
