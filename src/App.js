@@ -14,6 +14,7 @@ function App() {
                 <Route exact path='/' component={Landing}/>
                 <Route exact path='/summoner/:name' component={UserPage}/>
                 <Route path='/summoner/:name/match/:match_id' component={MatchPage}/>
+                <Route path ='/404' component={NotFound}/>
                 <Route component={NotFound}/>
             </Switch>
         </Router>

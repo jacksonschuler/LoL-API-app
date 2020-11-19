@@ -46,6 +46,8 @@ function UserPage(props) {
             // we need a check here if the account exists...
             setSummonerInfo(res.data);
             console.log(res.data);
+        }).catch((err)=>{
+            window.location.href='/404'
         })
     }, [props.match.params.name]);
 

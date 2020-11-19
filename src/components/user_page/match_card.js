@@ -141,6 +141,9 @@ function bgColor(win_bool) {
 }
 
 function computeKDA(kills, deaths, assists) {
+    if (deaths === 0) {
+        return ((kills + assists) / 1).toFixed(2)
+    }
     return ((kills + assists) / deaths).toFixed(2)
 }
 
