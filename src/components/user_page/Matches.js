@@ -2,6 +2,7 @@ import React, {useEffect} from 'react'
 import axios from "axios";
 import MatchCard from "./match_card";
 import TabPanel from "@material-ui/lab/TabPanel";
+import FeedbackMatchCard from "./feedback/feedback_match_card";
 
 function Matches(props) {
 
@@ -16,7 +17,7 @@ function Matches(props) {
                 axios.get('https://us-central1-lol-api-project.cloudfunctions.net/getMatch?match_id=' + match).then(response => {
                     matches.push(response.data);
                     if (matches.length === 5) {
-                        setMatchesState(matches);
+                        // setMatchesState(matches);    //TODO UNCOMMMENT WHEN DONE
                     }
                 })
             });
@@ -33,7 +34,7 @@ function Matches(props) {
                         match={match}
                     />
                 )
-            ) : (<div>nah chief</div>)}
+            ) : (<div><FeedbackMatchCard/></div>)}
             {/*<MatchCard*/}
             {/*    summonerName={'schulerj'}*/}
             {/*/>*/}
