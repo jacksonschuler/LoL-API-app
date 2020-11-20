@@ -27,7 +27,7 @@ const useStyles = makeStyles((theme) => ({
         width: '100%',
         paddingBottom: '65.25%',
         clipPath: 'polygon(0 0, 100% 0%, 100% 84%, 0% 100%)',
-        backgroundColor:'#ff215e',
+        backgroundColor:'#dadada',
         zIndex:-1,
     },
     content:{

@@ -15,11 +15,17 @@ const useStyles = makeStyles((theme) => ({
     top: {
         paddingTop: '10vh',
     },
+    tabs: {
+        justifyContent: 'start',
+        '@media (max-width: 400px)' : {
+            justifyContent: 'center'
+        }
+    },
     root: {
         display:'flex',
-        paddingLeft: '13vw',
         backgroundColor:'#ededed',
         boxShadow: 'none',
+        justifyContent: 'center',
         '@media (max-width: 400px)' : {
         }
     },
@@ -44,7 +50,7 @@ function UserTabs(props) {
         <div className={classes.top}>
             <TabContext value={value}>
                 <AppBar position="static" className={classes.root}>
-                    <TabList onChange={handleChange} aria-label="simple tabs example">
+                    <TabList onChange={handleChange} classes={{flexContainer: classes.tabs}}>
                         <Tab label="Top Champs" value="1" className={classes.tabLabel}/>
                         <Tab label="Recent Games" value="2" className={classes.tabLabel}/>
                     </TabList>

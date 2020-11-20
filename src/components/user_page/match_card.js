@@ -21,6 +21,8 @@ const useStyles = makeStyles((theme) => ({
         zIndex: 5,
     },
     card_container: {
+        width: '100%',
+        backgroundColor: 'red',
         display:'flex',
         justifyContent: 'center',
         alignItems: 'center',
