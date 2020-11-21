@@ -8,20 +8,23 @@ import axios from "axios";
 const useStyles = makeStyles((theme) => ({
     card: {
         width: '855px',
-        height: '15vh',
+        '@media (max-width: 400px)' : {
+            width: '100%',
+        },
+        height: '100%',
         borderRadius: 7,
         boxShadow: '0 16px 40px -12.125px rgba(0,0,0,0.4)',
+        padding: 10,
     },
     card_content: {
-        position: 'relative',
-        height: '100%',
         display: 'flex',
+        flexWrap: 'wrap',
         alignItems: 'center',
-        justifyContent: 'space-between',
-        zIndex: 5,
+        justifyContent: 'space-between'
     },
     card_container: {
         width: '100%',
+        minHeight: '15vh',
         backgroundColor: 'red',
         display:'flex',
         justifyContent: 'center',
@@ -83,8 +86,7 @@ const useStyles = makeStyles((theme) => ({
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'center',
-
-        width: 100,
+        width: 80,
         height: '100%',
         flexWrap: 'wrap',
     },
@@ -102,7 +104,6 @@ const useStyles = makeStyles((theme) => ({
         gridTemplateRows: '35px 35px',
         columnGap: '5px',
         rowGap: '5px',
-        marginRight: 30,
     },
     item: {
         backgroundColor: '#a9a9a9',
@@ -114,8 +115,6 @@ const useStyles = makeStyles((theme) => ({
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'center',
-        marginLeft:60,
-        marginRight: 50,
         width: 100,
         height: '100%',
         flexWrap: 'wrap',
@@ -247,12 +246,12 @@ function MatchCard(props) {
                         </div>
                     </div>
                     <div className={classes.kda_container}>
-                        <h3 className={classes.kda_text} style={{marginBottom: -30}}>{main_obj.stats.kills} / {main_obj.stats.deaths} / {main_obj.stats.assists}</h3>
+                        <h3 className={classes.kda_text} style={{marginBottom: -20}}>{main_obj.stats.kills} / {main_obj.stats.deaths} / {main_obj.stats.assists}</h3>
                         <h4 className={classes.kda_text} style={{fontWeight: 400,}}>{computeKDA(main_obj.stats.kills, main_obj.stats.deaths, main_obj.stats.assists)} KDA</h4>
                     </div>
                     <div className={classes.match_info}>
-                        <h4 className={classes.kda_text} style={{marginBottom: -30}}>Level {main_obj.stats.champLevel}</h4>
-                        <h4 className={classes.kda_text} style={{marginBottom: -30}}>{main_obj.stats.totalMinionsKilled + main_obj.stats.neutralMinionsKilled} ({getCSPerMin(main_obj.stats.totalMinionsKilled + main_obj.stats.neutralMinionsKilled, props.match.gameDuration)}) CS</h4>
+                        <h4 className={classes.kda_text} style={{marginBottom: -20}}>Level {main_obj.stats.champLevel}</h4>
+                        <h4 className={classes.kda_text} style={{marginBottom: -20}}>{main_obj.stats.totalMinionsKilled + main_obj.stats.neutralMinionsKilled} ({getCSPerMin(main_obj.stats.totalMinionsKilled + main_obj.stats.neutralMinionsKilled, props.match.gameDuration)}) CS</h4>
                         <h4 className={classes.kda_text}>Kill P. {getKP(main_obj.stats.kills, main_obj.stats.assists, getTotalKills(props.match, main_obj.teamId))} %</h4>
                     </div>
                     <div className={classes.items_container}>
