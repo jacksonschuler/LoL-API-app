@@ -1,12 +1,6 @@
-import React, {useEffect, useState} from 'react';
-import axios from 'axios'
-import SummonerCard from "../components/user_page/summoner_card";
-import FeedbackCards from "../components/user_page/feedback/feedback_cards";
-import RankedCard from "../components/user_page/ranked_card";
+import React from 'react';
 import {makeStyles} from "@material-ui/core/styles";
 import UserNav from "../components/user_page/nav_bar";
-import UserTabs from "../components/user_page/user_tabs";
-import Matches from "../components/user_page/Matches";
 /**
  * Info i wanna show
  * Icon

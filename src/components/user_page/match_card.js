@@ -5,7 +5,6 @@ import config from '../../config';
 import axios from "axios";
 import IconButton from "@material-ui/core/IconButton";
 import ArrowForwardIosIcon from '@material-ui/icons/ArrowForwardIos';
-import Badge from "@material-ui/core/Badge";
 
 
 const useStyles = makeStyles((theme) => ({
@@ -215,8 +214,6 @@ function MatchCard(props) {
     let [champs, setChamps] = useState({});
 
     let runes = require('../../runesReforged');
-
-    let static_match = require('./match');
 
     let main_id = getParticipantID(props.summonerName, props.match.participantIdentities); // get the participant idea of the queried summoner
 

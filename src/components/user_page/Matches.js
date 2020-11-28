@@ -1,7 +1,6 @@
 import React, {useEffect} from 'react'
 import axios from "axios";
 import MatchCard from "./match_card";
-import TabPanel from "@material-ui/lab/TabPanel";
 import FeedbackMatchCardGroup from "./feedback/feedback_match_cardgroup";
 
 function Matches(props) {
@@ -22,7 +21,7 @@ function Matches(props) {
                 })
             });
         });
-    }, []);
+    }, [props.account_id]);
 
     return(
         <div>

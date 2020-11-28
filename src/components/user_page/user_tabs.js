@@ -1,4 +1,4 @@
-import React, {useEffect} from 'react';
+import React from 'react';
 import AppBar from '@material-ui/core/AppBar';
 import Tab from '@material-ui/core/Tab';
 import TabContext from '@material-ui/lab/TabContext';
@@ -6,8 +6,6 @@ import TabList from '@material-ui/lab/TabList';
 import TabPanel from '@material-ui/lab/TabPanel';
 import {makeStyles} from "@material-ui/core/styles";
 import MostPlayedChamps from "./most_played_champs";
-import axios from "axios";
-import MatchCard from "./match_card";
 import Matches from "./Matches";
 
 
