@@ -5,6 +5,7 @@ import config from '../../config';
 import axios from "axios";
 import IconButton from "@material-ui/core/IconButton";
 import ArrowForwardIosIcon from '@material-ui/icons/ArrowForwardIos';
+import Badge from "@material-ui/core/Badge";
 
 
 const useStyles = makeStyles((theme) => ({
@@ -248,7 +249,7 @@ function MatchCard(props) {
                     <div className={classes.kda_container}>
                         <h3 className={classes.kda_text} style={{marginBottom: -20}}>{main_obj.stats.kills} / {main_obj.stats.deaths} / {main_obj.stats.assists}</h3>
                         <h4 className={classes.kda_text} style={{fontWeight: 400,marginBottom: -20}}>{computeKDA(main_obj.stats.kills, main_obj.stats.deaths, main_obj.stats.assists)} KDA</h4>
-                        <h4 style={{color: bgColor(main_obj.stats.win)}}>{main_obj.stats.win === true ? '[VICTORY]': '[DEFEAT]'}</h4>
+                        <h5 style={{color: bgColor(main_obj.stats.win)}}>{main_obj.stats.win === true ? '[VICTORY]': '[DEFEAT]'}</h5>
                     </div>
                     <div className={classes.match_info}>
                         <h4 className={classes.kda_text} style={{marginBottom: -20}}>Level {main_obj.stats.champLevel}</h4>
@@ -269,7 +270,7 @@ function MatchCard(props) {
                         <div className={classes.item} style={{backgroundImage: `url(${process.env.PUBLIC_URL + '/items/' + main_obj.stats.item5 + '.png'})`}}>
                         </div>
                     </div>
-                    <IconButton>
+                    <IconButton onClick={() => {window.location.href = `/summoner/${props.summonerName}/match/${props.match.gameId}`}}>
                         <ArrowForwardIosIcon/>
                     </IconButton>
                 </div>
