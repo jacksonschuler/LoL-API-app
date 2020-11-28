@@ -3,6 +3,8 @@ import {makeStyles} from "@material-ui/core/styles";
 import Card from "@material-ui/core/Card";
 import config from '../../config';
 import axios from "axios";
+import IconButton from "@material-ui/core/IconButton";
+import ArrowForwardIosIcon from '@material-ui/icons/ArrowForwardIos';
 
 
 const useStyles = makeStyles((theme) => ({
@@ -20,12 +22,11 @@ const useStyles = makeStyles((theme) => ({
         display: 'flex',
         flexWrap: 'wrap',
         alignItems: 'center',
-        justifyContent: 'space-between'
+        justifyContent: 'space-between',
     },
     card_container: {
         width: '100%',
         minHeight: '15vh',
-        backgroundColor: 'red',
         display:'flex',
         justifyContent: 'center',
         alignItems: 'center',
@@ -77,7 +78,6 @@ const useStyles = makeStyles((theme) => ({
     summoner_spell: {
         height:30,
         width: 30,
-        backgroundColor: 'red',
         backgroundSize: 'cover',
         backgroundRepeat: 'no-repeat',
         borderRadius: 5,
@@ -247,7 +247,8 @@ function MatchCard(props) {
                     </div>
                     <div className={classes.kda_container}>
                         <h3 className={classes.kda_text} style={{marginBottom: -20}}>{main_obj.stats.kills} / {main_obj.stats.deaths} / {main_obj.stats.assists}</h3>
-                        <h4 className={classes.kda_text} style={{fontWeight: 400,}}>{computeKDA(main_obj.stats.kills, main_obj.stats.deaths, main_obj.stats.assists)} KDA</h4>
+                        <h4 className={classes.kda_text} style={{fontWeight: 400,marginBottom: -20}}>{computeKDA(main_obj.stats.kills, main_obj.stats.deaths, main_obj.stats.assists)} KDA</h4>
+                        <h4 style={{color: bgColor(main_obj.stats.win)}}>{main_obj.stats.win === true ? '[VICTORY]': '[DEFEAT]'}</h4>
                     </div>
                     <div className={classes.match_info}>
                         <h4 className={classes.kda_text} style={{marginBottom: -20}}>Level {main_obj.stats.champLevel}</h4>
@@ -268,6 +269,9 @@ function MatchCard(props) {
                         <div className={classes.item} style={{backgroundImage: `url(${process.env.PUBLIC_URL + '/items/' + main_obj.stats.item5 + '.png'})`}}>
                         </div>
                     </div>
+                    <IconButton>
+                        <ArrowForwardIosIcon/>
+                    </IconButton>
                 </div>
             </Card>
         </div>
