@@ -1,8 +1,23 @@
 import React from "react";
 import {makeStyles} from "@material-ui/core/styles";
 import MatchRadarChart from "./match_radar_chart";
+import Card from "@material-ui/core/Card";
 
 const useStyles = makeStyles((theme) => ({
+    card: {
+        padding:15,
+        borderRadius: 7,
+        minWidth: 330,
+        maxWidth: 330,
+        minHeight: 500,
+        boxShadow: '0 16px 40px -12.125px rgba(0,0,0,0.4)',
+        margin: 7.5,
+    },
+    title_txt: {
+        marginLeft: 5,
+        marginTop: -2,
+        fontFamily: 'Quicksand'
+    },
     color_divider: {
         backgroundImage: 'linear-gradient(to right, #bc4e9c, #f80759)',
         position: 'absolute',
@@ -111,7 +126,7 @@ function MatchContent(props) {
     let dmgTaken_arr = props.match['participants'].map(participant => participant.stats.totalDamageDealtToChampions);
     let dmgGold = props.match['participants'].map(participant => parseFloat((participant.stats.totalDamageDealtToChampions/participant.stats.goldEarned).toFixed(5)));
 
-    let player_data = [
+    let player_dmg_data = [
         normalize(KP_arr)[playerId -1],
         normalize(KDA_arr)[playerId -1],
         normalize(championDMG_arr)[playerId -1],
@@ -120,7 +135,7 @@ function MatchContent(props) {
         normalize(dmgGold)[playerId -1]
     ];
 
-    let opponent_data = [
+    let opponent_dmg_data = [
         normalize(KP_arr)[opponentId -1],
         normalize(KDA_arr)[opponentId -1],
         normalize(championDMG_arr)[opponentId -1],
@@ -131,15 +146,16 @@ function MatchContent(props) {
 
     return(
         <div>
-            <MatchRadarChart
-                labels={['Kill Participation (%)', 'KDA', 'Damage to Champions', 'Damage Share (%)', 'Damage Taken', 'Damage per Gold']}
-                //TODO normalize this data
-                player_data={player_data}
-                player_label={props.summonerName}
-                opponent_label={opponentName}
-                opponent_data={opponent_data}
-            />
-            Match Page
+            <Card className={classes.card}>
+                <h2 className={classes.title_txt}>Damage</h2>
+                <MatchRadarChart
+                    labels={['KP (%)', 'KDA', 'Dmg Done', 'Dmg Share (%)', 'Dmg Taken', 'Dmg/gold']}
+                    player_data={player_dmg_data}
+                    player_label={props.summonerName}
+                    opponent_label={opponentName}
+                    opponent_data={opponent_dmg_data}
+                />
+            </Card>
             <div className={classes.footer}/>
         </div>
     )

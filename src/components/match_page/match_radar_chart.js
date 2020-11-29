@@ -27,7 +27,9 @@ function MatchRadarChart(props){
     */
     return(
         <div>
-            <Radar data={{
+            <Radar
+                width={145}
+                data={{
                 labels: props.labels,
                 datasets: [{
                     label: props.player_label,
@@ -44,11 +46,13 @@ function MatchRadarChart(props){
                         data: props.opponent_data
                     }]}}
                 options={{
+                    responsive: true,
+                    maintainAspectRatio: true,
                     scale: {
                         ticks: {
                             display: false,
-                            suggestedMin: 1,
-                            suggestedMax: 3.2,
+                            suggestedMin: .5,
+                            suggestedMax: 3.1,
                         },
                         pointLabels: {
                             fontFamily: 'Quicksand',
@@ -57,7 +61,8 @@ function MatchRadarChart(props){
                         }
                     },
                     legend: {
-                        position: 'left',
+                        display: false,
+                        position: 'bottom',
                         labels: {
                             fontFamily: 'Quicksand',
                         }
@@ -68,6 +73,16 @@ function MatchRadarChart(props){
 
                 }}
             />
+            <div style={{marginTop: 40, display:'flex', alignItems: 'center', justifyContent: 'center'}}>
+                <div style={{display:'flex', alignItems: 'center'}}>
+                    <div style={{height: 10, width: 10, borderRadius: '50%', backgroundColor:'rgba(255,34,57,0.6)', marginRight: 10}}/>
+                    <h5 style={{fontFamily:'Quicksand'}}>{props.player_label}</h5>
+                </div>
+                <div style={{marginLeft:30, display: 'flex', alignItems: 'center'}}>
+                    <div style={{height: 10, width: 10, borderRadius: '50%', backgroundColor:'rgba(0,30,255,0.6)', marginRight: 10}}/>
+                    <h5 style={{fontFamily:'Quicksand'}}>{props.opponent_label}</h5>
+                </div>
+            </div>
         </div>
     )
 }
