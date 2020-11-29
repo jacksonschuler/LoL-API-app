@@ -3,19 +3,6 @@ import axios from "axios";
 import MatchContent from "../components/match_page/match_content";
 
 
-function getPlayerId(summonerName, participants_arr) {
-    return participants_arr.filter(participant => participant.player.summonerName === summonerName)[0].participantId;
-}
-
-function getPlayerTimeline(id, participants) {
-    return participants[id - 1]
-}
-
-function getOpposingTimeline(role,lane, participants) {
-    return participants.filter(player => (player.timeline.role === role && player.timeline.lane === lane))[0]
-}
-
-
 function MatchPage(props) {
     let [match, setMatch] = useState(undefined);
 
@@ -29,7 +16,7 @@ function MatchPage(props) {
     return(
         <div>
             {match ? (
-                <MatchContent match={match}/>
+                <MatchContent match={match} summonerName={props.match.params.name}/>
             ) : (
                 <div/>
             )}
