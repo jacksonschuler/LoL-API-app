@@ -1,5 +1,6 @@
 import React, {useEffect, useState} from 'react'
 import axios from "axios";
+import MatchContent from "../components/match_page/match_content";
 
 
 function getPlayerId(summonerName, participants_arr) {
@@ -20,13 +21,18 @@ function MatchPage(props) {
 
     useEffect(() => {
         axios.get('https://us-central1-lol-api-project.cloudfunctions.net/getMatch?match_id=' + props.match.params.match_id).then(res => {
-            setMatch(res.data);
+            // we need the player, the opponent timelines.
+            setMatch(res.data)
         });
-    }, [props.match.params.match_id]);
-
+    }, []);
 
     return(
         <div>
+            {match ? (
+                <MatchContent match={match}/>
+            ) : (
+                <div/>
+            )}
         </div>
     )
 }
