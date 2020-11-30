@@ -28,8 +28,12 @@ function getPlayerTimeline(id, participants) {
     return participants[id - 1]
 }
 
-function getOpposingTimeline(role,lane, participants) {
-    return participants.filter(player => (player.timeline.role === role && player.timeline.lane === lane))[0]
+function getOpposingTimeline(role,lane, participants, teamId) {
+    if (lane !== 'BOTTOM') {
+        return participants.filter(player => (player.timeline.lane === lane && player.teamId === teamId))[0]
+    } else {
+        return participants.filter(player => (player.timeline.role === role && player.timeline.lane === lane && player.teamId === teamId))[0]
+    }
 }
 
 function getOpponentName(id, participants) {
@@ -84,16 +88,25 @@ function normalize(arr) {
     return normalized
 }
 
+/*
+* Error involving whether player is duo queued
+* - just check the lane, what if bot?
+* */
+
 function DamageCard(props) {
     let playerId = getPlayerId(props.summonerName, props.match['participantIdentities']);
 
     let playerTimeline = getPlayerTimeline(playerId, props.match['participants']);
 
-    let opponentTimeline = getOpposingTimeline(playerTimeline.timeline.role, playerTimeline.timeline.lane, props.match['participants']);
+    let oppTeamId = playerTimeline.teamId === 100 ? 200 : 100;
+
+    let opponentTimeline = getOpposingTimeline(playerTimeline.timeline.role, playerTimeline.timeline.lane, props.match['participants'], oppTeamId);
 
     let opponentName = getOpponentName(opponentTimeline.participantId, props.match['participantIdentities']);
 
     let opponentId = opponentTimeline.participantId;
+
+
 
     let KDA_arr = props.match['participants'].map(participant => parseFloat(computeKDA(participant.stats.kills, participant.stats.deaths, participant.stats.assists)));
     let KP_arr = props.match['participants'].map(participant => parseFloat(getKP(participant.stats.kills, participant.stats.assists, getTotalKills(props.match, participant.teamId))));

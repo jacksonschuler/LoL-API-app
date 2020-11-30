@@ -28,10 +28,13 @@ function getPlayerTimeline(id, participants) {
     return participants[id - 1]
 }
 
-function getOpposingTimeline(role,lane, participants) {
-    return participants.filter(player => (player.timeline.role === role && player.timeline.lane === lane))[0]
+function getOpposingTimeline(role,lane, participants, teamId) {
+    if (lane !== 'BOTTOM') {
+        return participants.filter(player => (player.timeline.lane === lane && player.teamId === teamId))[0]
+    } else {
+        return participants.filter(player => (player.timeline.role === role && player.timeline.lane === lane && player.teamId === teamId))[0]
+    }
 }
-
 function getOpponentName(id, participants) {
     return participants[id -1].player.summonerName;
 }
@@ -57,7 +60,9 @@ function UtilityCard(props) {
 
     let playerTimeline = getPlayerTimeline(playerId, props.match['participants']);
 
-    let opponentTimeline = getOpposingTimeline(playerTimeline.timeline.role, playerTimeline.timeline.lane, props.match['participants']);
+    let oppTeamId = playerTimeline.teamId === 100 ? 200 : 100;
+
+    let opponentTimeline = getOpposingTimeline(playerTimeline.timeline.role, playerTimeline.timeline.lane, props.match['participants'], oppTeamId);
 
     let opponentName = getOpponentName(opponentTimeline.participantId, props.match['participantIdentities']);
 
