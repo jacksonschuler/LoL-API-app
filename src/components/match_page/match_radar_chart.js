@@ -1,6 +1,7 @@
 import React from 'react';
 import {Radar} from 'react-chartjs-2'
 
+
 function MatchRadarChart(props){
 
     /*
@@ -28,7 +29,7 @@ function MatchRadarChart(props){
     return(
         <div>
             <Radar
-                width={145}
+                width={140}
                 data={{
                 labels: props.labels,
                 datasets: [{
@@ -52,7 +53,7 @@ function MatchRadarChart(props){
                         ticks: {
                             display: false,
                             suggestedMin: .5,
-                            suggestedMax: 3.1,
+                            suggestedMax: 3,
                         },
                         pointLabels: {
                             fontFamily: 'Quicksand',
