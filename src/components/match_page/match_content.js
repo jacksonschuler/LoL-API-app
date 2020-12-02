@@ -3,6 +3,7 @@ import {makeStyles} from "@material-ui/core/styles";
 import DamageCard from "./dmg_card";
 import UtilityCard from "./util_card";
 import IncomeCard from "./income_card";
+import BackButton from "./back_button";
 
 const useStyles = makeStyles((theme) => ({
     color_divider: {
@@ -30,11 +31,12 @@ function MatchContent(props) {
 
     let classes = useStyles();
 
-    console.log(props.match)
+    console.log(props.match);
 
 
     return(
         <div>
+            <BackButton/>
             <div className={classes.color_divider}/>
             <div className={classes.cards}>
                 <DamageCard

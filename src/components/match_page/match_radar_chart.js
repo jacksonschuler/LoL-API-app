@@ -29,7 +29,7 @@ function MatchRadarChart(props){
     return(
         <div>
             <Radar
-                width={140}
+                width={120}
                 data={{
                 labels: props.labels,
                 datasets: [{

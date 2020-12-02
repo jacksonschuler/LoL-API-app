@@ -20,7 +20,8 @@
     "serve": "^11.3.2",
     "styled-components": "^5.2.1",
     "teemojs": "^1.6.1",
-    "web-vitals": "^0.2.4"
+    "web-vitals": "^0.2.4",
+    "react-router": "latest"
   },
   "scripts": {
     "start": "react-scripts start",
