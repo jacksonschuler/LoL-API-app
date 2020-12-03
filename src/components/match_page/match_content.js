@@ -23,7 +23,7 @@ const useStyles = makeStyles((theme) => ({
         display: 'flex',
         flexWrap: 'wrap',
         justifyContent: 'center',
-        marginTop: 100,
+        marginTop: 50,
     },
 }));
 
@@ -39,17 +39,19 @@ function MatchContent(props) {
         <div>
             <BackButton/>
             <div className={classes.color_divider}/>
-            <div className={classes.cards}>
-                <MatchPlayerCard
-                    match={props.match}
-                    summonerName={props.summonerName}
-                    isPlayer={true}
-                />
-                <MatchPlayerCard
-                    match={props.match}
-                    summonerName={props.summonerName}
-                    isPlayer={false}
-                />
+            <div style={{marginTop:150}}>
+                <div className={classes.cards}>
+                    <MatchPlayerCard
+                        match={props.match}
+                        summonerName={props.summonerName}
+                        isPlayer={true}
+                    />
+                    <MatchPlayerCard
+                        match={props.match}
+                        summonerName={props.summonerName}
+                        isPlayer={false}
+                    />
+                </div>
             </div>
             <div className={classes.cards}>
                 <DamageCard
