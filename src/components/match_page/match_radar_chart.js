@@ -74,7 +74,7 @@ function MatchRadarChart(props){
 
                 }}
             />
-            <div style={{marginTop: 40, display:'flex', alignItems: 'center', justifyContent: 'center'}}>
+            <div style={{marginTop: 30, display:'flex', alignItems: 'center', justifyContent: 'center'}}>
                 <div style={{display:'flex', alignItems: 'center'}}>
                     <div style={{height: 10, width: 10, borderRadius: '50%', backgroundColor:'rgba(255,34,57,0.6)', marginRight: 10}}/>
                     <h5 style={{fontFamily:'Quicksand'}}>{props.player_label}</h5>

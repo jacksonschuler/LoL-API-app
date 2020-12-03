@@ -4,6 +4,7 @@ import DamageCard from "./dmg_card";
 import UtilityCard from "./util_card";
 import IncomeCard from "./income_card";
 import BackButton from "./back_button";
+import MatchPlayerCard from "./match_player_card";
 
 const useStyles = makeStyles((theme) => ({
     color_divider: {
@@ -38,6 +39,18 @@ function MatchContent(props) {
         <div>
             <BackButton/>
             <div className={classes.color_divider}/>
+            <div className={classes.cards}>
+                <MatchPlayerCard
+                    match={props.match}
+                    summonerName={props.summonerName}
+                    isPlayer={true}
+                />
+                <MatchPlayerCard
+                    match={props.match}
+                    summonerName={props.summonerName}
+                    isPlayer={false}
+                />
+            </div>
             <div className={classes.cards}>
                 <DamageCard
                     match={props.match}

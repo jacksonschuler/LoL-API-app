@@ -11,6 +11,13 @@ const useStyles = makeStyles((theme) => ({
         top: 10,
         left: 10,
         color: 'white',
+    },
+    txt: {
+        position: 'absolute',
+        left: 100,
+        top : -3,
+        fontFamily: 'Quicksand',
+        color: 'white',
     }
 }));
 
@@ -25,6 +32,9 @@ function BackButton() {
             }}>
                 <ArrowBackIosIcon/>
             </IconButton>
+            <h2 className={classes.txt}>
+                Match Breakdown
+            </h2>
         </div>
     )
 }
