@@ -236,7 +236,7 @@ function MatchCard(props) {
                             <div className={classes.runes_secondary} style={{backgroundImage: `url(${getRune(false, 0, main_obj.stats.perkSubStyle, runes)})`}}/>
                         </div>
                         <div className={classes.champ_icon_container}>
-                            <div className={classes.champ_img} style={{backgroundImage: `url(${'http://ddragon.leagueoflegends.com/cdn/10.23.1/img/champion/' + getChampNameFromChampID(main_obj.championId, champs) + '.png'})`}}/>
+                            <div className={classes.champ_img} style={{backgroundImage: `url(${process.env.PUBLIC_URL + '/champs_icons/' + getChampNameFromChampID(main_obj.championId, champs) + '.png'})`}}/>
                         </div>
                         <div className={classes.summoners_container}>
                             <div className={classes.summoner_spell} style={{backgroundImage: `url(${getSummonerSpellFromId(main_obj.spell1Id)})`, marginBottom: 10}}/>

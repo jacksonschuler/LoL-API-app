@@ -148,7 +148,7 @@ function MatchPlayerCard(props) {
                         <div className={classes.container}>
                             <div className={classes.champ_icon_container}>
                                 {champs ? (
-                                    <div className={classes.champ_img} style={{backgroundImage: `url(${'http://ddragon.leagueoflegends.com/cdn/10.23.1/img/champion/' + getChampNameFromChampID(playerTimeline.championId, champs) + '.png'})`}}/>
+                                    <div className={classes.champ_img} style={{backgroundImage: `url(${process.env.PUBLIC_URL + '/champs_icons/' + getChampNameFromChampID(playerTimeline.championId, champs) + '.png'})`}}/>
                                 ) : (
                                     <div></div>
                                 )}
@@ -166,7 +166,7 @@ function MatchPlayerCard(props) {
                         <div className={classes.container}>
                             <div className={classes.champ_icon_container}>
                                 {champs ? (
-                                    <div className={classes.champ_img} style={{backgroundImage: `url(${'http://ddragon.leagueoflegends.com/cdn/10.23.1/img/champion/' + getChampNameFromChampID(opponentTimeline.championId, champs) + '.png'})`}}/>
+                                    <div className={classes.champ_img} style={{backgroundImage: `url(${process.env.PUBLIC_URL + '/champs_icons/' + getChampNameFromChampID(opponentTimeline.championId, champs) + '.png'})`}}/>
                                 ) : (
                                     <div></div>
                                 )}
