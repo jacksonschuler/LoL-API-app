@@ -148,35 +148,6 @@ function getRune(isPrimary, primaryCode, runeId, runes){
         return 'http://ddragon.leagueoflegends.com/cdn/img/' + iconURL.icon;
     }
 }
-
-function getKP(myKills, myAssists, totalKills){
-    return (((myKills + myAssists)/totalKills) * 100).toFixed(1)
-}
-
-function getTotalKills(match, teamId) {
-    let num_kills = 0;
-    let filtered_match = match.participants.filter(player => player.teamId === teamId);
-    filtered_match.forEach(player => {
-        num_kills += player.stats.kills
-    });
-    return num_kills
-}
-
-
-//going to use static object for this
-
-//I can use this to get primary
-//http://ddragon.leagueoflegends.com/cdn/img/perk-images/Styles/Sorcery/SummonAery/SummonAery.png
-
-//I can use this to get Secondary
-//http://ddragon.leagueoflegends.com/cdn/img/perk-images/Styles/7200_Domination.png
-/*
-
-ID conversions required
-- champ
-- runes, primary and secondary
- */
-
 function MatchCard(props) {
 
     const match_functions = require('../../scripts/match_functions');
@@ -223,7 +194,7 @@ function MatchCard(props) {
                     <div className={classes.match_info}>
                         <h4 className={classes.kda_text} style={{marginBottom: -20}}>Level {main_obj.stats.champLevel}</h4>
                         <h4 className={classes.kda_text} style={{marginBottom: -20}}>{main_obj.stats.totalMinionsKilled + main_obj.stats.neutralMinionsKilled} ({match_functions.getCSPerMin(main_obj.stats.totalMinionsKilled + main_obj.stats.neutralMinionsKilled, props.match.gameDuration)}) CS</h4>
-                        <h4 className={classes.kda_text}>Kill P. {getKP(main_obj.stats.kills, main_obj.stats.assists, getTotalKills(props.match, main_obj.teamId))} %</h4>
+                        <h4 className={classes.kda_text}>Kill P. {match_functions.getKP(main_obj.stats.kills, main_obj.stats.assists, match_functions.getTotalKills(props.match, main_obj.teamId))} %</h4>
                     </div>
                     <div className={classes.items_container}>
                         <div className={classes.item} style={{backgroundImage: `url(${process.env.PUBLIC_URL + '/items/' + main_obj.stats.item0 + '.png'})`}}>

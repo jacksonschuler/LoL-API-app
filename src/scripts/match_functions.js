@@ -49,6 +49,20 @@ const getCSPerMin = (totalCS, matchLength) => {
     return (totalCS/matchLength * 60).toFixed(1)
 };
 
+const getTotalKills = (match, teamId) => {
+    let num_kills = 0;
+    let filtered_match = match.participants.filter(player => player.teamId === teamId);
+    filtered_match.forEach(player => {
+        num_kills += player.stats.kills
+    });
+    return num_kills
+};
+
+const getKP = (myKills, myAssists, totalKills) => {
+    return (((myKills + myAssists)/totalKills) * 100).toFixed(1)
+};
+
+
 module.exports = {
     getChampNameFromChampID: getChampNameFromChampID,
     computeKDA: computeKDA,
@@ -58,4 +72,6 @@ module.exports = {
     getOpponentName: getOpponentName,
     getOpposingTimeline: getOpposingTimeline,
     getCSPerMin: getCSPerMin,
+    getTotalKills: getTotalKills,
+    getKP: getKP,
 };
