@@ -121,18 +121,6 @@ const useStyles = makeStyles((theme) => ({
     }
 }));
 
-//http://ddragon.leagueoflegends.com/cdn/10.23.1/data/en_US/runesReforged.json
-
-//input = 'schulerj'
-//output = 10
-function getParticipantID(summonerName, participants_arr) {
-    return participants_arr.filter(participant => participant.player.summonerName === summonerName)[0].participantId;
-}
-
-function getParticipantTimeline(id, participants) {
-    return participants.filter(player => player.participantId === id)[0]
-}
-
 function getSummonerSpellFromId(spell_id) {
     return 'http://ddragon.leagueoflegends.com/cdn/10.23.1/img/spell/' + config.SUMMONERS[spell_id] + '.png';
 }
@@ -158,9 +146,9 @@ function MatchCard(props) {
 
     let runes = require('../../runesReforged');
 
-    let main_id = getParticipantID(props.summonerName, props.match.participantIdentities); // get the participant idea of the queried summoner
+    let main_id = match_functions.getPlayerId(props.summonerName, props.match.participantIdentities); // get the participant idea of the queried summoner
 
-    let main_obj = getParticipantTimeline(main_id, props.match.participants);
+    let main_obj = match_functions.getPlayerTimeline(main_id, props.match.participants);
 
     useEffect(() => {
         let game_version = config.GAME_VERSION;
