@@ -32,9 +32,6 @@ function MatchContent(props) {
 
     let classes = useStyles();
 
-    console.log(props.match);
-
-
     return(
         <div>
             <BackButton/>

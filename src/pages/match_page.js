@@ -12,7 +12,7 @@ function MatchPage(props) {
             // we need the player, the opponent timelines.
             setMatch(res.data)
         });
-    }, []);
+    }, [props.match.params.match_id]);
 
     return(
         <div>
