@@ -45,6 +45,10 @@ const bgColor = (win_bool) => {
     }
 };
 
+const getCSPerMin = (totalCS, matchLength) => {
+    return (totalCS/matchLength * 60).toFixed(1)
+};
+
 module.exports = {
     getChampNameFromChampID: getChampNameFromChampID,
     computeKDA: computeKDA,
@@ -52,5 +56,6 @@ module.exports = {
     getPlayerId: getPlayerId,
     getPlayerTimeline: getPlayerTimeline,
     getOpponentName: getOpponentName,
-    getOpposingTimeline: getOpposingTimeline
+    getOpposingTimeline: getOpposingTimeline,
+    getCSPerMin: getCSPerMin,
 };

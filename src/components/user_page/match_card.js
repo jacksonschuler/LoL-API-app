@@ -133,21 +133,6 @@ function getParticipantTimeline(id, participants) {
     return participants.filter(player => player.participantId === id)[0]
 }
 
-function bgColor(win_bool) {
-    if (win_bool) {
-        return '#4eff4d';
-    } else {
-        return '#ff6c7d'
-    }
-}
-
-function computeKDA(kills, deaths, assists) {
-    if (deaths === 0) {
-        return ((kills + assists) / 1).toFixed(2)
-    }
-    return ((kills + assists) / deaths).toFixed(2)
-}
-
 function getSummonerSpellFromId(spell_id) {
     return 'http://ddragon.leagueoflegends.com/cdn/10.23.1/img/spell/' + config.SUMMONERS[spell_id] + '.png';
 }
@@ -164,19 +149,6 @@ function getRune(isPrimary, primaryCode, runeId, runes){
     }
 }
 
-function getChampNameFromChampID(id, champions){
-    if (champions !== {}) {
-        if (champions.data) {
-            let champs = Object.values(champions.data);
-            for (let i = 0; i < champs.length; i++){
-                if (champs[i].key === id.toString()) {
-                    return champs[i].id
-                }
-            }
-        }
-    }
-}
-
 function getKP(myKills, myAssists, totalKills){
     return (((myKills + myAssists)/totalKills) * 100).toFixed(1)
 }
@@ -190,9 +162,6 @@ function getTotalKills(match, teamId) {
     return num_kills
 }
 
-function getCSPerMin(totalCS, matchLength) {
-    return (totalCS/matchLength * 60).toFixed(1)
-}
 
 //going to use static object for this
 
@@ -209,6 +178,9 @@ ID conversions required
  */
 
 function MatchCard(props) {
+
+    const match_functions = require('../../scripts/match_functions');
+
     const classes = useStyles();
 
     let [champs, setChamps] = useState({});
@@ -236,7 +208,7 @@ function MatchCard(props) {
                             <div className={classes.runes_secondary} style={{backgroundImage: `url(${getRune(false, 0, main_obj.stats.perkSubStyle, runes)})`}}/>
                         </div>
                         <div className={classes.champ_icon_container}>
-                            <div className={classes.champ_img} style={{backgroundImage: `url(${process.env.PUBLIC_URL + '/champs_icons/' + getChampNameFromChampID(main_obj.championId, champs) + '.png'})`}}/>
+                            <div className={classes.champ_img} style={{backgroundImage: `url(${process.env.PUBLIC_URL + '/champs_icons/' + match_functions.getChampNameFromChampID(main_obj.championId, champs) + '.png'})`}}/>
                         </div>
                         <div className={classes.summoners_container}>
                             <div className={classes.summoner_spell} style={{backgroundImage: `url(${getSummonerSpellFromId(main_obj.spell1Id)})`, marginBottom: 10}}/>
@@ -245,12 +217,12 @@ function MatchCard(props) {
                     </div>
                     <div className={classes.kda_container}>
                         <h3 className={classes.kda_text} style={{marginBottom: -20}}>{main_obj.stats.kills} / {main_obj.stats.deaths} / {main_obj.stats.assists}</h3>
-                        <h4 className={classes.kda_text} style={{fontWeight: 400,marginBottom: -20}}>{computeKDA(main_obj.stats.kills, main_obj.stats.deaths, main_obj.stats.assists)} KDA</h4>
-                        <h5 style={{color: bgColor(main_obj.stats.win)}}>{main_obj.stats.win === true ? '[VICTORY]': '[DEFEAT]'}</h5>
+                        <h4 className={classes.kda_text} style={{fontWeight: 400,marginBottom: -20}}>{match_functions.computeKDA(main_obj.stats.kills, main_obj.stats.deaths, main_obj.stats.assists)} KDA</h4>
+                        <h5 style={{color: match_functions.bgColor(main_obj.stats.win)}}>{main_obj.stats.win === true ? '[VICTORY]': '[DEFEAT]'}</h5>
                     </div>
                     <div className={classes.match_info}>
                         <h4 className={classes.kda_text} style={{marginBottom: -20}}>Level {main_obj.stats.champLevel}</h4>
-                        <h4 className={classes.kda_text} style={{marginBottom: -20}}>{main_obj.stats.totalMinionsKilled + main_obj.stats.neutralMinionsKilled} ({getCSPerMin(main_obj.stats.totalMinionsKilled + main_obj.stats.neutralMinionsKilled, props.match.gameDuration)}) CS</h4>
+                        <h4 className={classes.kda_text} style={{marginBottom: -20}}>{main_obj.stats.totalMinionsKilled + main_obj.stats.neutralMinionsKilled} ({match_functions.getCSPerMin(main_obj.stats.totalMinionsKilled + main_obj.stats.neutralMinionsKilled, props.match.gameDuration)}) CS</h4>
                         <h4 className={classes.kda_text}>Kill P. {getKP(main_obj.stats.kills, main_obj.stats.assists, getTotalKills(props.match, main_obj.teamId))} %</h4>
                     </div>
                     <div className={classes.items_container}>
