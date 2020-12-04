@@ -5,6 +5,7 @@ import UtilityCard from "./util_card";
 import IncomeCard from "./income_card";
 import BackButton from "./back_button";
 import MatchPlayerCard from "./match_player_card";
+import Disclaimer from "../disclaimer";
 
 const useStyles = makeStyles((theme) => ({
     color_divider: {

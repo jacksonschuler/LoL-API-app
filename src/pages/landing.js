@@ -1,6 +1,7 @@
 import React from 'react';
 import LandingNavBar from "../components/landing/landing_navbar";
 import LandingContent from "../components/landing/landing_content";
+import Disclaimer from "../components/disclaimer";
 
 
 function Landing() {
@@ -9,6 +10,7 @@ function Landing() {
         <div>
             <LandingNavBar/>
             <LandingContent/>
+            <Disclaimer/>
         </div>
     )
 }

@@ -7,6 +7,7 @@ import TabPanel from '@material-ui/lab/TabPanel';
 import {makeStyles} from "@material-ui/core/styles";
 import MostPlayedChamps from "./most_played_champs";
 import Matches from "./Matches";
+import Disclaimer from "../disclaimer";
 
 
 const useStyles = makeStyles((theme) => ({
