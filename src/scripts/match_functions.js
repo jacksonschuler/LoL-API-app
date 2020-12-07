@@ -11,6 +11,23 @@ const getChampNameFromChampID = (id, champions) => {
     }
 };
 
+const getRole = (role) => {
+  switch(role) {
+      case 'MIDDLE':
+          return 'Mid';
+      case 'TOP':
+          return "Top";
+      case 'BOTTOM':
+          return "Bot";
+      case 'JUNGLE':
+          return "Jungle";
+      case 'SUPPORT':
+          return "Support";
+      default:
+          return "unknown role :("
+  }
+};
+
 const getPlayerId = (summonerName, participants_arr) => {
     return participants_arr.filter(participant => participant.player.summonerName === summonerName)[0].participantId;
 };
@@ -74,4 +91,5 @@ module.exports = {
     getCSPerMin: getCSPerMin,
     getTotalKills: getTotalKills,
     getKP: getKP,
+    getRole:getRole,
 };

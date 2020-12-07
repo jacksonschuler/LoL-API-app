@@ -16,7 +16,7 @@ const useStyles = makeStyles((theme) => ({
         display:'grid',
         gridTemplateColumns: 'repeat(3, 1fr)',
         justifyContent: 'space-evenly',
-        '@media (max-width: 400px)' : {
+        '@media (max-width: 500px)' : {
             gridTemplateColumns: 'repeat(1, 1fr)',
         }
     }

@@ -5,7 +5,7 @@ const useStyles = makeStyles((theme) => ({
     title_txt: {
         marginLeft: 5,
         marginTop: -2,
-        marginBottom: 50,
+        marginBottom: 20,
         fontFamily: 'Quicksand'
     },
     txt: {
@@ -48,8 +48,26 @@ const useStyles = makeStyles((theme) => ({
         backgroundSize: 'cover',
         backgroundRepeat: 'no-repeat',
     },
+    role_container: {
+        display: 'flex',
+        justifyContent: 'space-between',
+        alignItems: 'center',
+        paddingLeft: 10,
+        paddingRight: 10,
+    },
+    role: {
+        width: 50,
+        height: 50,
+        backgroundSize: 'cover',
+        backgroundRepeat: 'no-repeat',
+    }
 
 }));
+
+/*
+* role
+* cs count
+* */
 
 function MatchPageCardContent(props) {
     const match_functions = require('../../scripts/match_functions');
@@ -67,8 +85,17 @@ function MatchPageCardContent(props) {
                 </div>
                 <div>
                     <h3 className={classes.txt}>{props.timeline.stats.kills} / {props.timeline.stats.deaths} / {props.timeline.stats.assists} ({match_functions.computeKDA(props.timeline.stats.kills, props.timeline.stats.deaths, props.timeline.stats.assists)} KDA)</h3>
-                    <h3 className={classes.txt}> Level 13</h3>
+                    <h3 className={classes.txt}> Level {props.timeline.stats.champLevel}</h3>
                     <h3 style={{color: match_functions.bgColor(props.timeline.stats.win), marginLeft: 20,}}>{props.timeline.stats.win === true ? '[VICTORY]': '[DEFEAT]'}</h3>
+                </div>
+            </div>
+            <div className={classes.role_container}>
+                <div
+                    className={classes.role}
+                    style={{backgroundImage: `url(${process.env.PUBLIC_URL + '/roles/Position_Diamond-' + match_functions.getRole(props.timeline.timeline.lane) +'.png'})`}}
+                />
+                <div>
+                    <h3 style={{fontFamily: 'Quicksand'}}>{props.timeline.stats.totalMinionsKilled + props.timeline.stats.neutralMinionsKilled} ({match_functions.getCSPerMin(props.timeline.stats.totalMinionsKilled + props.timeline.stats.neutralMinionsKilled, props.gameDuration)}) CS</h3>
                 </div>
             </div>
         </div>

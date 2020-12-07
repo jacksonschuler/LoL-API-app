@@ -51,6 +51,7 @@ function MatchPlayerCard(props) {
                             champs={champs}
                             timeline={playerTimeline}
                             name={props.summonerName}
+                            gameDuration={props.match.gameDuration}
                         />
                     </div>
                 ) : (
@@ -59,6 +60,7 @@ function MatchPlayerCard(props) {
                             champs={champs}
                             timeline={opponentTimeline}
                             name={opponentName}
+                            gameDuration={props.match.gameDuration}
                         />
                     </div>
                 )}
