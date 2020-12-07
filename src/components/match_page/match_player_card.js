@@ -14,6 +14,7 @@ const useStyles = makeStyles((theme) => ({
         minHeight: 500,
         boxShadow: '0 16px 40px -12.125px rgba(0,0,0,0.4)',
         margin: 7.5,
+        position:'relative',
     },
 }));
 
@@ -64,7 +65,8 @@ function MatchPlayerCard(props) {
                         />
                     </div>
                 )}
-
+                <div style={{minWidth: 360, maxWidth: 360 ,height:30, backgroundColor: props.isPlayer ? 'rgba(255,34,57,0.6)' : 'rgba(0,30,255,0.6)',
+                    position: 'absolute', bottom: 0, left: 0,}}/>
             </Card>
         </div>
     )

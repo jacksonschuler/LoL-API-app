@@ -37,8 +37,8 @@ const useStyles = makeStyles((theme) => ({
     items_container: {
         padding: 5,
         display: 'grid',
-        gridTemplateColumns: '50px 50px 50px',
-        gridTemplateRows: '50px 50px',
+        gridTemplateColumns: '60px 60px 60px',
+        gridTemplateRows: '60px 60px',
         columnGap: '8px',
         rowGap: '8px',
     },
@@ -54,6 +54,12 @@ const useStyles = makeStyles((theme) => ({
         alignItems: 'center',
         paddingLeft: 10,
         paddingRight: 10,
+        marginBottom: 40,
+    },
+    item2_container: {
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'center'
     },
     role: {
         width: 50,
@@ -96,6 +102,22 @@ function MatchPageCardContent(props) {
                 />
                 <div>
                     <h3 style={{fontFamily: 'Quicksand'}}>{props.timeline.stats.totalMinionsKilled + props.timeline.stats.neutralMinionsKilled} ({match_functions.getCSPerMin(props.timeline.stats.totalMinionsKilled + props.timeline.stats.neutralMinionsKilled, props.gameDuration)}) CS</h3>
+                </div>
+            </div>
+            <div className={classes.item2_container}>
+                <div className={classes.items_container}>
+                    <div className={classes.item} style={{backgroundImage: `url(${process.env.PUBLIC_URL + '/items/' + props.timeline.stats.item0 + '.png'})`}}>
+                    </div>
+                    <div className={classes.item} style={{backgroundImage: `url(${process.env.PUBLIC_URL + '/items/' + props.timeline.stats.item1 + '.png'})`}}>
+                    </div>
+                    <div className={classes.item} style={{backgroundImage: `url(${process.env.PUBLIC_URL + '/items/' + props.timeline.stats.item2 + '.png'})`}}>
+                    </div>
+                    <div className={classes.item} style={{backgroundImage: `url(${process.env.PUBLIC_URL + '/items/' + props.timeline.stats.item3 + '.png'})`}}>
+                    </div>
+                    <div className={classes.item} style={{backgroundImage: `url(${process.env.PUBLIC_URL + '/items/'+ props.timeline.stats.item4 + '.png'})`}}>
+                    </div>
+                    <div className={classes.item} style={{backgroundImage: `url(${process.env.PUBLIC_URL + '/items/' + props.timeline.stats.item5 + '.png'})`}}>
+                    </div>
                 </div>
             </div>
         </div>
