@@ -43,6 +43,7 @@ function MatchPlayerCard(props) {
 
     let opponentName = match_functions.getOpponentName(opponentTimeline.participantId, props.match['participantIdentities']);
 
+
     return(
         <div>
             <Card className={classes.card}>

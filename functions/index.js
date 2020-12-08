@@ -147,4 +147,25 @@ exports.getMatch = functions.https.onRequest(async (req, res) => {
     })
 });
 
+exports.getMatchTimeline = functions.https.onRequest(async (req, res) => {
+    return cors(req, res, () => {
+        let match_id = req.query.match_id;
+        if (req.method !== "GET") {
+            return res.status(401).json({
+                message: "Not allowed"
+            });
+        }
+        axios.get('https://na1.api.riotgames.com/lol/match/v4/timelines/by-match/' + match_id + '?api_key=' + api_key).then(response => {
+            return res.status(200).json(
+                response.data
+            )
+
+        }).catch(err => {
+            return res.status(500).json({
+                error: err
+            })
+        })
+    })
+});
+
 
