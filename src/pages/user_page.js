@@ -6,7 +6,6 @@ import RankedCard from "../components/user_page/ranked_card";
 import {makeStyles} from "@material-ui/core/styles";
 import UserNav from "../components/user_page/nav_bar";
 import UserTabs from "../components/user_page/user_tabs";
-import Disclaimer from "../components/disclaimer";
 /**
  * Info i wanna show
  * Icon

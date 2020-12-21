@@ -72,8 +72,6 @@ function MatchGraphCard(props) {
 
     let chartPlayerData = FormatChart(playerTimeline);
 
-    console.log(chartPlayerData);
-
     let chartOppData = FormatChart(opponentTimeline);
 
     return(
@@ -116,6 +114,7 @@ function MatchGraphCard(props) {
                                 yAxes: [{
                                     display: true,
                                     ticks: {
+                                        fontFamily: 'Quicksand',
                                         suggestedMin: 0,
                                         suggestedMax: Math.max(chartPlayerData[chartPlayerData.length-1].y, chartOppData[chartOppData.length-1].y),
                                     }
@@ -123,10 +122,11 @@ function MatchGraphCard(props) {
                                 xAxes: [{
                                     display: true,
                                     ticks: {
+                                        fontFamily: 'Quicksand',
                                         suggestedMin: 0,
                                         suggestedMax: opponentTimeline.length,
                                     }
-                                }]
+                                }],
                             },
                             legend: {
                                 display: false,
