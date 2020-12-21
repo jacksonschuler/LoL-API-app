@@ -43,12 +43,14 @@ function MatchPage(props) {
                     plid={match_functions.getPlayerId(props.match.params.name, match['participantIdentities'])}
                     timeline={timeline}
                     playerName={props.match.params.name}
-                    oppName={match['participantIdentities'][match_functions.getOpposingTimeline(
+                    oppName={
+                        match['participantIdentities'][match_functions.getOpposingTimeline(
                         match_functions.getPlayerTimeline(match_functions.getPlayerId(props.match.params.name, match['participantIdentities']), match['participants']).timeline.role,
                         match_functions.getPlayerTimeline(match_functions.getPlayerId(props.match.params.name, match['participantIdentities']), match['participants']).timeline.lane,
                         match['participants'],
                         match_functions.getPlayerTimeline(match_functions.getPlayerId(props.match.params.name, match['participantIdentities']), match['participants']).teamId === 100 ? 200 : 100
-                    ).participantId-1].player.summonerName}
+                    ).participantId-1].player.summonerName
+                    }
                 />
             ): (
                 <div/>

@@ -17,7 +17,11 @@ const useStyles = makeStyles((theme) => ({
         paddingLeft: 24,
         paddingTop: 14,
         paddingBottom: 13,
-        minWidth: '50vh',
+        minWidth: '50vw',
+        '@media (max-width: 400px)' :{
+          minWidth: '69vw',
+        },
+        maxWidth: '50vw',
         flex:1,
     },
     paper_input: {
@@ -41,7 +45,6 @@ function LandingSearchBar(props) {
     const [nameInput, setNameInput] = React.useState('');
 
     const classes = useStyles();
-    //TODO: component styling
     return(
         <>
             <div>
