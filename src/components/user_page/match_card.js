@@ -99,6 +99,9 @@ const useStyles = makeStyles((theme) => ({
         alignItems: 'center',
     },
     items_container: {
+        '@media (max-width: 400px)' : {
+            display: 'none'
+        },
         display: 'grid',
         gridTemplateColumns: '35px 35px 35px',
         gridTemplateRows: '35px 35px',
@@ -106,6 +109,9 @@ const useStyles = makeStyles((theme) => ({
         rowGap: '5px',
     },
     item: {
+        '@media (max-width: 400px)' : {
+            display: 'none'
+        },
         backgroundColor: '#a9a9a9',
         borderRadius: 5,
         backgroundSize: 'cover',

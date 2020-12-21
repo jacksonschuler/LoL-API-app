@@ -41,6 +41,9 @@ const useStyles = makeStyles((theme) => ({
         color: '#cfcfcf',
     },
     items_container: {
+        '@media (max-width: 400px)' : {
+            display: 'none'
+        },
         display: 'grid',
         gridTemplateColumns: '35px 35px 35px',
         gridTemplateRows: '35px 35px',
@@ -79,16 +82,16 @@ function FeedbackMatchCard() {
                     </div>
                 </div>
                 <div className={classes.container}>
-                    <div className={classes.txt} style={{width: 50}}/>
+                    <div className={classes.txt} style={{width: '10vw'}}/>
                     <div style={{margin: 15}}/>
-                    <div className={classes.txt} style={{width: 20}}/>
+                    <div className={classes.txt} style={{width: '5vw'}}/>
                 </div>
                 <div className={classes.container}>
-                    <div className={classes.txt} style={{width: 60}}/>
+                    <div className={classes.txt} style={{width: '7vw'}}/>
                     <div style={{margin: 15}}/>
-                    <div className={classes.txt} style={{width: 40}}/>
+                    <div className={classes.txt} style={{width: '3vw'}}/>
                     <div style={{margin: 15}}/>
-                    <div className={classes.txt} style={{width: 40}}/>
+                    <div className={classes.txt} style={{width: '4vw'}}/>
                 </div>
                 <div className={classes.items_container}>
                     <div className={classes.item}>
