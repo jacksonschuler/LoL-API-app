@@ -86,7 +86,7 @@ const useStyles = makeStyles((theme) => ({
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'center',
-        width: 80,
+        width: 90,
         height: '100%',
         flexWrap: 'wrap',
     },
