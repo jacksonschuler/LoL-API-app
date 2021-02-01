@@ -128,7 +128,7 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 function getSummonerSpellFromId(spell_id) {
-    return 'http://ddragon.leagueoflegends.com/cdn/10.23.1/img/spell/' + config.SUMMONERS[spell_id] + '.png';
+    return `http://ddragon.leagueoflegends.com/cdn/${config.GAME_VERSION}/img/spell/${config.SUMMONERS[spell_id]}.png`;
 }
 
 function getRune(isPrimary, primaryCode, runeId, runes){
