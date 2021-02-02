@@ -6,6 +6,8 @@ The application was built using React.js, Material-UI and is hosted through the 
 - All player data used throughout the application was taken through the Riot Games Developer API. 
 More information about the API can be found at https://developer.riotgames.com/
 
+- Application data is up to date with patch 11.2.1
+
 ## Hosting URL
 https://lol-api-project.web.app/
 
